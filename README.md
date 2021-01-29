@@ -1,4 +1,4 @@
-# l2s4-projet-2021
+# l2s4-projet-2021 - Groupe 3
 
 Vous devez *forker* ce projet dans votre espace de travail Gitlab (bouton `Fork`) et vidéo sur le [portail](https://www.fil.univ-lille1.fr/portail/index.php?dipl=L&sem=S4&ue=Projet&label=Documents)
 
