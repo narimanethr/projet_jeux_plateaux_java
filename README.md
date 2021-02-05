@@ -6,10 +6,10 @@ Une fois cela réalisé supprimer ces premières lignes et remplissez les noms d
 
 # Equipe
 
-- prénom1 NOM1
-- prénom2 NOM2
-- prénom3 NOM3
-- prénom4 NOM4
+- Hicham Harra
+- Said Harbane
+- Narimane Tahir        
+- Massinissa Lekhal
 
 # Sujet
 
