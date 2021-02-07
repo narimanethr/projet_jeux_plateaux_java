@@ -19,6 +19,8 @@ Une fois cela réalisé supprimer ces premières lignes et remplissez les noms d
 
 ## Livrable 1
 
+semaine de 1/02/2021 on a lu l'ensemble du sujet et on a degagé les classes qui pouraient exéstrées et on a modelisé l'uml des personnages (uml en format image déposéee dans git)
+
 ### Atteinte des objectifs
 
 ### Difficultés restant à résoudre
