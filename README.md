@@ -26,11 +26,13 @@ semaine de 1/02/2021 on a lu l'ensemble du sujet et on a degagé les classes qui
 ### Difficultés restant à résoudre
 
 ## Livrable 2
+on acréer le projet avec éclips et on a commencé à coder les classes personnage et modéliser le plteau
 
 ### Atteinte des objectifs
 
 ### Difficultés restant à résoudre
-
+pour le plateau on a pensé à une seule classe avec deux constructeurs car c'est le même plateau pour les deux jeux 
+la difference est la construction du plateau
 ## Livrable 3
 
 ### Atteinte des objectifs
