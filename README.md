@@ -26,7 +26,9 @@ semaine de 1/02/2021 on a lu l'ensemble du sujet et on a degagé les classes qui
 ### Difficultés restant à résoudre
 
 ## Livrable 2
-on acréer le projet avec éclips et on a commencé à coder les classes personnage et modéliser le plteau
+on acréer le projet avec éclips
+on a coder les classes personnages
+on a modélisé le plateau et on commencé le code 
 
 ### Atteinte des objectifs
 

@@ -1,7 +1,10 @@
 package personnages;
 
-import Pesonnage;
+public class Ouvrier extends Personnage {
 
-public class Ouvrier extends Pesonnage {
+	public Ouvrier(int t) {
+		super(t);
+		// TODO Auto-generated constructor stub
+	}
 
 }

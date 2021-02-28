@@ -2,16 +2,28 @@ package personnages;
 
 public abstract class Personnage {
 	protected int nbOr;
-	public Personnage() {
-		// TODO Auto-generated constructor stub
+	protected int taille;
+	public Personnage(int t) {
+		this.taille=t;
+		this.nbOr=0;
 	}
-	public getNbOr() {
+	public  int getNbOr() {
 		return this.nbOr;
 	}
-	public setNbOr(int n ) {
+	public void setNbOr(int n ) {
 		this.nbOr+=n;
 	}
-	public toString() {
+	
+	public int getTaille() {
+		return this.taille;
+	}
+	public void addTaille(int t) {
+		this.taille = taille+t;
+	}
+	public void subTaille(int t) {
+		this.taille = taille - t;
+	}
+	public String toString() {
 		return " ";
 	}
 
