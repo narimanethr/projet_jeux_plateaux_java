@@ -1,3 +1,5 @@
+package plateaux;
+import tuiles.Tuile;
 
 public class Plateau {
 	private int largeur;
