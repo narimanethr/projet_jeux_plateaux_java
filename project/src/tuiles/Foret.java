@@ -1,7 +1,7 @@
 package tuiles;
 
 
-import ressources.Bois;
+import ressourcesAgricole.Bois;
 
 public class Foret extends Tuile {
 

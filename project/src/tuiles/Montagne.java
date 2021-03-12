@@ -1,6 +1,6 @@
 package tuiles;
 
-import ressources.Roches;
+import ressourcesAgricole.Roches;
 
 public class Montagne extends Tuile {
 

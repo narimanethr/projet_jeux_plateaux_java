@@ -1,7 +1,5 @@
 package tuiles;
 
-import ressources.Sable;
-
 public class Desert extends Tuile {
 
 	public Desert() {

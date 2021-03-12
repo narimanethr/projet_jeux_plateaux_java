@@ -1,6 +1,6 @@
 package tuiles;
 
-import ressources.Ble;
+import ressourcesAgricole.Ble;
 
 public class Plaine extends Tuile {
 

@@ -6,6 +6,7 @@ import ressources.Ressource;
 public abstract class Tuile {
 	protected String name;
 	protected Ressource res;
+	protected 
 	public Tuile(){
 		this.res=null;
 		this.name="";
