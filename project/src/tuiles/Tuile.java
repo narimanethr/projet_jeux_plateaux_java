@@ -1,21 +1,25 @@
 package tuiles;
-import java.util.Random;
-
-import ressources.Ressource;
+import ressources.agricole.RessourceAgricole;
 
 public abstract class Tuile {
 	protected String name;
-	protected Ressource res;
-	protected 
-	public Tuile(){
-		this.res=null;
-		this.name="";
+	protected RessourceAgricole res;
+	public Tuile(String name, RessourceAgricole res) {
+		super();
+		this.name = name;
+		this.res = res;
 	}
-	public Ressource getRessources() {
-		return this.res;
-	}
-	public String getName() {
-		return this.name;
+	
+	public RessourceAgricole getRes() {
+		return res;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 }
