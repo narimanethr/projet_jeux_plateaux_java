@@ -1,4 +1,5 @@
 package plateaux;
+import tuiles.Ocean;
 import tuiles.Tuile;
 
 public class Plateau {
@@ -30,6 +31,26 @@ public class Plateau {
 	}
 	public String toString() {
 		return "ce plateau est de taille "+this.getNbTuiles();
+	}
+	public int getNbTuiAjsOcean(int i, int j) {
+		int res=0;
+		if ((plateau[i][j+1])instanceof Ocean ) {
+			res+=1;
+			
+		}
+		if ((plateau[i][j-1])instanceof Ocean ) {
+			res+=1;
+			
+		}
+		if ((plateau[i+1][j])instanceof Ocean ) {
+			res+=1;
+			
+		}
+		if ((plateau[i-1][j+1])instanceof Ocean ) {
+			res+=1;
+		}
+		return res;
+		
 	}
 	
 

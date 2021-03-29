@@ -1,8 +1,6 @@
 package ressources.guerre;
 
-import ressources.Ressources;
-
-public abstract class RessourceGuerre implements Ressources {
+public abstract class RessourceGuerre {
 	protected int unite;
 	public RessourceGuerre() {
 		this.unite=0;
