@@ -4,11 +4,11 @@ import ressources.agricole.*;
 import tuiles.*;
 
 public abstract class PlateauAgricole{
-	private int largeur;
-	private	int hauteur;
-	private Tuile [][] plateau;
+	protected int largeur;
+	protected	int hauteur;
+	protected Tuile [][] plateau;
 	
-	public PlateauAgricole(int l, int h){                 //Tuile(String name, RessourceAgricole res,int cap,int y,int x)
+	public PlateauAgricole(int l, int h){                
 		this.largeur=l;
 		this.hauteur=h;
 		plateau = new Tuile[this.hauteur][this.largeur];
@@ -25,7 +25,6 @@ public abstract class PlateauAgricole{
 		while(nbOfOc > (2/3)*(this.getNbTuiles()) ) {
 			int y1= r.nextInt(this.hauteur);
 			int x1= r.nextInt(this.largeur);
-			plateau[y][x]=getTuileAleatoire(y,x);
 			if((hasAjNotOcean(y1, x1) & (this.plateau[y1][x1])instanceof Ocean )) {
 				plateau[y1][x1]=getTuileAleatoire(y1,x1);
 			}
@@ -37,7 +36,7 @@ public abstract class PlateauAgricole{
 	}
 	
 	
-	public Tuile getTuile(int x,int y) {
+	public Tuile getTuile(int y,int x) {
 		return this.plateau[y][x];
 	}
 	

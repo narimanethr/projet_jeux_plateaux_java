@@ -17,6 +17,7 @@ public abstract class Tuile {
 		this.capacite=cap;
 		this.position[0]=y;
 		this.position[1]=x;
+		this.proprietaire=null;
 	}
 	
 	public Ressources getRes() {
@@ -41,9 +42,11 @@ public abstract class Tuile {
 		return capacite;
 	}
 
-
 	public int getCout() {
 		return cout;
+	}
+	public boolean isFree() {
+		return this.proprietaire==null;
 	}
 
 	
