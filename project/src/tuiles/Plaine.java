@@ -1,11 +1,14 @@
 package tuiles;
-import ressources.agricole.*;
+import ressources.Ressources;
+
 public class Plaine extends Tuile {
 
-	public Plaine() {
-		this.res=new Ble();
-		this.name="ble";
+	public Plaine(Ressources res,int cap,int y,int x) {
+		super(res,cap,y,x);
+		this.name="plaine";
 		this.bonus=1;
+		this.cout=1;
 	}
 
 }
+
