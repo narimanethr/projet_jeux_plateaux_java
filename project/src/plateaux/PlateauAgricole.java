@@ -3,7 +3,7 @@ import java.util.Random;
 import ressources.agricole.*;
 import tuiles.*;
 
-public abstract class PlateauAgricole{
+public abstract class PlateauAgricole implements Plateau{
 	protected int largeur;
 	protected	int hauteur;
 	protected Tuile [][] plateau;

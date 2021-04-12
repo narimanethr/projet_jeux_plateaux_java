@@ -5,7 +5,7 @@ import ressources.guerre.*;
 import tuiles.*;
 
 
-public class PlateauGuerre extends PlateauAgricole {
+public class PlateauGuerre extends PlateauAgricole{
 
 	public PlateauGuerre(int l, int h) {
 		super(l, h);
