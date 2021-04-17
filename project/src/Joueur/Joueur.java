@@ -6,9 +6,10 @@ public class Joueur {
 	private int nbPersonnage;
 	
 	public Joueur(int nbPersonnage, int nbOr, String name, int unites) {
-		super();
-		this.setNbOr(nbOr);
-		this.setUnites(unites);
+		this.name=name;
+		this.nbPersonnage=nbPersonnage;
+		this.nbOr=nbOr;
+		this.unites=unites;
 	}
 	public String getName() {
 		return name;
@@ -31,8 +32,8 @@ public class Joueur {
 	public int getUnites() {
 		return unites;
 	}
-	public void setUnites(int unites) {
-		this.unites = unites;
+	public void addUnites(int n) {
+		this.unites +=n;
 	}
 
 

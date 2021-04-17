@@ -2,7 +2,7 @@ package ressources;
 
 public interface Ressources {
 
-	public int getPieces();
+	public int getUnit();
 
 	
 

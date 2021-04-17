@@ -9,6 +9,7 @@ public abstract class Tuile {
 	protected String name;
 	protected int capacite;
 	protected int cout;
+	protected int nbperesonnages;
 	protected int [] position=new int[2];
 	protected Ressources res;
 	public Tuile(Ressources res,int cap,int y,int x) {
@@ -47,6 +48,14 @@ public abstract class Tuile {
 	}
 	public boolean isFree() {
 		return this.proprietaire==null;
+	}
+
+	public int getNbperesonnages() {
+		return nbperesonnages;
+	}
+
+	public void setNbperesonnages(int nbperesonnages) {
+		this.nbperesonnages = nbperesonnages;
 	}
 
 	
