@@ -13,7 +13,7 @@ public abstract class Personnage {
 	public  int getNbOr() {
 		return this.nbOr;
 	}
-	public void setNbOr(int n ) {
+	public void addNbOr(int n ) {
 		this.nbOr+=n;
 	}
 	

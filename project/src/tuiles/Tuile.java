@@ -1,15 +1,17 @@
 package tuiles;
 import Joueur.Joueur;
+import personnages.Personnage;
 import ressources.Ressources;
 import ressources.agricole.RessourceAgricole;
 
 public abstract class Tuile {
 	protected Joueur proprietaire;
+	
 	protected int bonus;
 	protected String name;
 	protected int capacite;
 	protected int cout;
-	protected int nbperesonnages;
+	protected Personnage peresonnage;
 	protected int [] position=new int[2];
 	protected Ressources res;
 	public Tuile(Ressources res,int cap,int y,int x) {
@@ -19,6 +21,7 @@ public abstract class Tuile {
 		this.position[0]=y;
 		this.position[1]=x;
 		this.proprietaire=null;
+		this.peresonnage=null;
 	}
 	
 	public Ressources getRes() {
@@ -50,13 +53,13 @@ public abstract class Tuile {
 		return this.proprietaire==null;
 	}
 
-	public int getNbperesonnages() {
-		return nbperesonnages;
+	public Personnage getPeresonnage() {
+		return this.peresonnage;
 	}
-
-	public void setNbperesonnages(int nbperesonnages) {
-		this.nbperesonnages = nbperesonnages;
+	public void setPersonnage(Personnage p) {
+		this.peresonnage=p;
 	}
+	
 
 	
 }

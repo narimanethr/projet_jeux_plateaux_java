@@ -5,11 +5,11 @@ public class Joueur {
 	private String name;
 	private int nbPersonnage;
 	
-	public Joueur(int nbPersonnage, int nbOr, String name, int unites) {
+	public Joueur(int nbPersonnage , String name) {
 		this.name=name;
 		this.nbPersonnage=nbPersonnage;
-		this.nbOr=nbOr;
-		this.unites=unites;
+		this.nbOr=nbOr=0;
+		this.unites=10;
 	}
 	public String getName() {
 		return name;
@@ -34,6 +34,9 @@ public class Joueur {
 	}
 	public void addUnites(int n) {
 		this.unites +=n;
+	}
+	public void subUnites(int n) {
+		this.unites -=n;
 	}
 
 
