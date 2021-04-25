@@ -7,6 +7,10 @@ public abstract class RessourceGuerre implements Ressources{
 	public RessourceGuerre() {
 		this.unite=0;
 	}
+	/*return 's the unite
+	 * @return unite the  unite 
+	 * 
+	 */
 	public int getUnit() {
 		return this.unite;
 	}

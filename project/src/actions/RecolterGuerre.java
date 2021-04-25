@@ -4,6 +4,9 @@ import plateaux.PlateauGuerre;
 
 public class RecolterGuerre {
 	protected PlateauGuerre plateau;
+	/* create a RecolterGuerre with p a gameBoard 
+	 * 
+	 */
 	public RecolterGuerre(PlateauGuerre p) {
 		this.plateau=p;
 		}
