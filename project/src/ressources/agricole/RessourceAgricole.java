@@ -8,11 +8,8 @@ public abstract class RessourceAgricole implements Ressources {
 	public RessourceAgricole(){
 		this.pieces=0;
 	}
-	/*return's the number of pieces 
-	 *   @return pieces number of pieces 
-	 * 
-	 */
-	public int getPieces() {
+	
+	public int getUnit() {
 		return this.pieces;
 	}
 }

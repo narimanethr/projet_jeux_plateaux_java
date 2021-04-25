@@ -4,16 +4,9 @@ import plateaux.*;
 
 
 public class RecolterGuerre {
-<<<<<<< HEAD
 	protected Plateau plateau;
+	
 	public RecolterGuerre(Plateau p) {
-=======
-	protected PlateauGuerre plateau;
-	/* create a RecolterGuerre with p a gameBoard 
-	 * 
-	 */
-	public RecolterGuerre(PlateauGuerre p) {
->>>>>>> 98249aed851da14c9ad386fb7adbb90813a63d86
 		this.plateau=p;
 		}
 	public void execute(Joueur j) {

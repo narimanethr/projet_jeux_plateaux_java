@@ -67,19 +67,18 @@ public class Joueur {
 	public int getNbOr() {
 		return nbOr;
 	}
-<<<<<<< HEAD
+
 	public void addNbOr(int n) {
 		this.nbOr += n;
 	}
 	public void subNbOr(int n) {
 		this.nbOr -= n;
-=======
+	}
 	/* set's the number  of gold  
 	 * @param nbOr
 	 */
 	public void setNbOr(int nbOr) {
 		this.nbOr = nbOr;
->>>>>>> 98249aed851da14c9ad386fb7adbb90813a63d86
 	}
 	/* return 's the unites  
 	 * @return unites 

@@ -5,7 +5,6 @@ import java.util.Set;
 
 import Joueur.Joueur;
 import plateaux.PlateauAgricole;
-import ressources.Ressources;
 import ressources.agricole.RessourceAgricole;
 
 public class EchangeRessources {
