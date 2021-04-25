@@ -60,6 +60,8 @@ public class DeployerGuerre{
 			}
 		
 	}
+	
+	
 	int converTailleTuile(Tuile t,Joueur j){
 		int res;
 		if (t instanceof Montagne & t.getProprietaire()!=j) {
