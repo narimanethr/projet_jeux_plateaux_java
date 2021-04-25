@@ -6,6 +6,9 @@ import tuiles.*;
 
 public class Nourir {
 	protected PlateauGuerre plateau;
+	/* create a new Nourir with p the gameBoard
+	 * 
+	 */
 	public Nourir(PlateauGuerre p) {
 		this.plateau=p;
 	}

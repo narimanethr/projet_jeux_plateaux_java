@@ -41,21 +41,43 @@ public abstract class Tuile {
 	public void setProprietaire(Joueur j) {
 		this.proprietaire=j;
 	}
+	/* return's the capacity 
+	 * @return capacite 
+	 * 
+	 */
 
 	public int getCapacite() {
 		return capacite;
 	}
+	/* return's the cost
+	 * @return cout 
+	 * 
+	 */
 
 	public int getCout() {
 		return cout;
 	}
+	/* Check's the tile is free  
+	 * @return true if there is a owner or false instead .
+	 * 
+	 */
 	public boolean isFree() {
 		return this.proprietaire==null;
 	}
+	/* return's the Character 
+	 * @return personnage 
+	 * 
+	 */
+	
 
 	public Personnage getPeresonnage() {
 		return this.peresonnage;
 	}
+	/* Set's the Character 
+	 * @param p a character
+	 * 
+	 */
+	
 	public void setPersonnage(Personnage p) {
 		this.peresonnage=p;
 	}

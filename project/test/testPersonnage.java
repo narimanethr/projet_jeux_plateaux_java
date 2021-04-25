@@ -12,7 +12,6 @@ class testPersonnage {
 	      this.p1 = new Armee(10);
 	     
 	   }
-
 	   @Test
 	   public void testgetNbOr() {
 	      assertEquals(0, this.p1.getNbOr());

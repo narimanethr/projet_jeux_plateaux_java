@@ -7,7 +7,11 @@ public abstract class PlateauAgricole implements Plateau{
 	protected int largeur;
 	protected	int hauteur;
 	protected Tuile [][] plateau;
-	
+	 /**
+     * create a new PlateauAgricole with the given width l, and h as height
+     * @param l the width
+     * @param h the height 
+     */
 	public PlateauAgricole(int l, int h){                
 		this.largeur=l;
 		this.hauteur=h;
@@ -30,22 +34,33 @@ public abstract class PlateauAgricole implements Plateau{
 			}
 		}
 	}
-	
+	/* return's the number of tiles 
+	 * @return  hauteur*this.largeur
+	 * 
+	 */
 	public int getNbTuiles() {
 		return this.hauteur*this.largeur;
 	}
-	
+	/*return's a tile in the Board Game with given coordinates 
+	 * @param y  horizontal position
+	 * @param x vertical position  
+	 * @return plateau[y][x]
+	 */
 	
 	public Tuile getTuile(int y,int x) {
 		return this.plateau[y][x];
 	}
-	
-	
+	/*return 's the height 
+	 * @return hauteur the height 
+	 * 
+	 */
 	public int getHauteur() {
 		return this.hauteur;
 	}
-	
-	
+	/*return 's the width 
+	 * @return largeur  the width
+	 * 
+	 */
 	public int getLargeur() {
 		return this.largeur;
 	}
@@ -66,6 +81,13 @@ public abstract class PlateauAgricole implements Plateau{
 		
 		return null;
 	}
+	/* check's if the current tile has not a tile of ocean type 
+	 * @param i a position 
+	 * @param j a position 
+	 * @return true if it has a tile of ocean type , or false instead 
+	 * 
+	 */
+	
 	
 
 	
@@ -89,6 +111,9 @@ public abstract class PlateauAgricole implements Plateau{
 		return res;
 	
 	}
+	/* return's the number of tiles of type Ocean
+	 * @return res the number of tiles of type Ocean
+	 */
 	public int getNBtuilOcean() {
 		int res=0;
 		for (int i=0;i<this.hauteur;i++) {

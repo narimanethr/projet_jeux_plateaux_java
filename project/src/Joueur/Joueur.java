@@ -36,33 +36,66 @@ public class Joueur {
 	public Map<RessourceAgricole, Integer> getRessources() {
 		return this.ressources;
 	}
+	/* return 's the name of player 
+	 * @return name 
+	 */
 	public String getName() {
 		return name;
 	}
+	/* set  's the name of player 
+	 * @param  name 
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
+	/* return 's the number  of characters  
+	 * @return nbPersonnage 
+	 */
+	
 	public int getNbPersonnage() {
 		return nbPersonnage;
 	}
+	/* set 's the number  of characters  
+	 * @param  nbPersonnage 
+	 */
 	public void setNbPersonnage(int nbPersonnage) {
 		this.nbPersonnage = nbPersonnage;
 	}
+	/* return 's the number  of gold  
+	 * @return nbOr
+	 */
 	public int getNbOr() {
 		return nbOr;
 	}
+<<<<<<< HEAD
 	public void addNbOr(int n) {
 		this.nbOr += n;
 	}
 	public void subNbOr(int n) {
 		this.nbOr -= n;
+=======
+	/* set's the number  of gold  
+	 * @param nbOr
+	 */
+	public void setNbOr(int nbOr) {
+		this.nbOr = nbOr;
+>>>>>>> 98249aed851da14c9ad386fb7adbb90813a63d86
 	}
+	/* return 's the unites  
+	 * @return unites 
+	 */
 	public int getUnites() {
 		return unites;
 	}
+	/* Add 's the unites  
+	 * @param n the number of unites 
+	 */
 	public void addUnites(int n) {
 		this.unites +=n;
 	}
+	/* Subsract's the unites  
+	 * @param n the number of unites to subtract 
+	 */
 	public void subUnites(int n) {
 		this.unites -=n;
 	}
