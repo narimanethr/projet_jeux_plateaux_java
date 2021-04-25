@@ -2,12 +2,12 @@ package actions;
 import Joueur.Joueur;
 import exception.RangeOutOfCapacityTileException;
 import personnages.Armee;
-import plateaux.PlateauGuerre;
+import plateaux.*;
 import tuiles.*;
 
 public class DeployerGuerre{
-	protected PlateauGuerre plateau;
-	public DeployerGuerre(PlateauGuerre p) {
+	protected Plateau plateau;
+	public DeployerGuerre(Plateau p) {
 		this.plateau=p;
 		
 	}
