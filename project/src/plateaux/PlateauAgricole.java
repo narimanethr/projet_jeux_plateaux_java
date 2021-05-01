@@ -3,7 +3,7 @@ import java.util.Random;
 import ressources.agricole.*;
 import tuiles.*;
 
-public abstract class PlateauAgricole implements Plateau{
+public  class PlateauAgricole implements Plateau{
 	protected int largeur;
 	protected	int hauteur;
 	protected Tuile [][] plateau;
@@ -24,9 +24,9 @@ public abstract class PlateauAgricole implements Plateau{
 		Random r = new Random();
 		int y= r.nextInt(this.hauteur);
 		int x= r.nextInt(this.largeur);
-		int nbOfOc=getNBtuilOcean();
+		int nb=(this.getNbTuiles()*2/3);
 		plateau[y][x]=getTuileAleatoire(y,x);
-		while(nbOfOc > (2/3)*(this.getNbTuiles()) ) {
+		while(getNBtuilOcean() >nb) {
 			int y1= r.nextInt(this.hauteur);
 			int x1= r.nextInt(this.largeur);
 			if((hasAjNotOcean(y1, x1) & (this.plateau[y1][x1])instanceof Ocean )) {
@@ -93,19 +93,19 @@ public abstract class PlateauAgricole implements Plateau{
 	
 	public boolean hasAjNotOcean(int i, int j) {
 		boolean res=false;
-		if (!((plateau[i][j+1])instanceof Ocean )) {
+		if (j<this.getLargeur()-1 && !((plateau[i][j+1])instanceof Ocean )) {
 			res=true;
 			
 		}
-		if (!((plateau[i][j-1])instanceof Ocean )) {
+		if (j>0 &&!((plateau[i][j-1])instanceof Ocean )) {
 			res=true;
 			
 		}
-		if (!((plateau[i+1][j])instanceof Ocean ) ){
+		if (i<this.getHauteur()-1 && !((plateau[i+1][j])instanceof Ocean )  ){
 			res=true;
 			
 		}
-		if (!((plateau[i-1][j+1])instanceof Ocean )) {
+		if (i>0 && !((plateau[i-1][j])instanceof Ocean )) {
 			res=true;
 		}
 		return res;
@@ -125,6 +125,22 @@ public abstract class PlateauAgricole implements Plateau{
 		}
 		return res;
 	}
+	public void affiche() {
+		String t[]=new String[this.getHauteur()];
+		for (int i=0;i<this.hauteur;i++) {
+			t[i]="";
+			for (int j=0; j<this.largeur;j++) {
+				//plateau[i][j]=new Ocean(null,1,j,i);
+				t[i]+= this.getTuile(i, j).getName()+ " ";
+			}
+			t[i]+="\n";
+		}
+		for (int i=0;i<this.hauteur;i++) {
+			System.out.println(t[i]);
+		}
+		              		
+	}
+	
 }
 		
 	
