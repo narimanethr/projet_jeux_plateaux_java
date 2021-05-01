@@ -4,7 +4,7 @@ import Joueur.Joueur;
 import plateaux.Plateau;
 import tuiles.Tuile;
 
-public class NeRienFaireAgricole extends NeRienFaire {
+public class NeRienFaireAgricole extends NeRienFaire implements Action {
 
 	public NeRienFaireAgricole(Plateau p) {
 		super(p);

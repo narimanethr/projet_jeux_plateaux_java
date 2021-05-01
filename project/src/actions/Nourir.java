@@ -1,10 +1,10 @@
 package actions;
 
-import Joueur.Joueur;
+import Joueur.JoueurGuerre;
 import plateaux.PlateauGuerre;
 import tuiles.*;
 
-public class Nourir {
+public class Nourir implements Action {
 	protected PlateauGuerre plateau;
 	/* create a new Nourir with p the gameBoard
 	 * 
@@ -12,10 +12,10 @@ public class Nourir {
 	public Nourir(PlateauGuerre p) {
 		this.plateau=p;
 	}
-	public void execute (Joueur j) {
+	public void execute (JoueurGuerre j) {
 		for(int x=0;x<this.plateau.getLargeur();x++){
 			for (int y=0;y<this.plateau.getHauteur();y++) {
-				if(this.plateau.getTuile(y, x).getProprietaire()==j) {
+				if(this.plateau.getTuile(y, x).getProprietaire()==j &(this.plateau.getTuile(y, x).getPeresonnage()!=null) ){ //comment avoir 
 					int cout=coutArmee(this.plateau.getTuile(y, x));
 					if(this.plateau.getTuile(y, x).getProprietaire().getUnites()>=cout){
 						this.plateau.getTuile(y, x).getProprietaire().subUnites(cout);
@@ -34,13 +34,16 @@ public class Nourir {
 		
 	}
 	int coutArmee(Tuile t) {
-		int res;
-		if (t instanceof Desert) {
-			res=t.getPeresonnage().getTaille()*2;
+		int res=0;
+		if(t.getPeresonnage()!=null) {
+			if (t instanceof Desert) {
+				res=t.getPeresonnage().getTaille()*2;
+			}
+			else {
+				res=t.getPeresonnage().getTaille();
+			}
 		}
-		else {
-			res=t.getPeresonnage().getTaille();
-		}
+		
 		return res;
 	}
 

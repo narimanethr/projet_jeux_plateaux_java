@@ -1,14 +1,14 @@
 package actions;
 
-import Joueur.Joueur;
+import Joueur.JoueurGuerre;
 import plateaux.Plateau;
 
-public class NeRienFaire {
+public class NeRienFaire implements Action{
 	protected Plateau plateau;
 	public NeRienFaire(Plateau p) {
 		this.plateau=p;
 	}
-	public void execute(Joueur j) {
+	public void execute(JoueurGuerre j) {
 		
 	}
 }

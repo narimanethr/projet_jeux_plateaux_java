@@ -3,16 +3,16 @@ import java.util.Iterator;
 import java.util.Set;
 
 
-import Joueur.Joueur;
+import Joueur.JoueurAgricole;
 import plateaux.PlateauAgricole;
 import ressources.agricole.RessourceAgricole;
 
-public class EchangeRessources {
+public class EchangeRessources implements Action{
 	protected PlateauAgricole plateau;
 	public EchangeRessources(PlateauAgricole p) {
 		this.plateau=p;
 	}
-	public void execute(Joueur j) {
+	public void execute(JoueurAgricole j) {
 		Set<RessourceAgricole> keys =j.getRessources().keySet();
 		Iterator<RessourceAgricole> it =keys.iterator();
 		while (it.hasNext()) {

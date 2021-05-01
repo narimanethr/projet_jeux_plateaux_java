@@ -1,15 +1,15 @@
 package actions;
 
-import Joueur.Joueur;
+import Joueur.JoueurAgricole;
 import plateaux.*;
 
-public class RecolterAgricole extends RecolterGuerre {
+public class RecolterAgricole extends RecolterGuerre implements Action {
 
 	public RecolterAgricole(Plateau p) {
 		super(p);
 		
 	}
-	public void execute(Joueur j) {
+	public void execute(JoueurAgricole j) {
 		for(int x=0;x<this.plateau.getLargeur();x++){
 			for (int y=0;y<this.plateau.getHauteur();y++) {
 				if(this.plateau.getTuile(y, x).getProprietaire()==j) {

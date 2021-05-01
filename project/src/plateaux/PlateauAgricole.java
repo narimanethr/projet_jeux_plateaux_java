@@ -140,7 +140,18 @@ public  class PlateauAgricole implements Plateau{
 		}
 		              		
 	}
-	
+	public boolean AllTileNotFree() {
+		boolean res =true;
+		for (int i=0;i<this.hauteur;i++) {
+			for (int j=0; j<this.largeur;j++) {
+				if(this.getTuile(i, j).isFree()){
+					res=false;
+				}
+			}
+		}
+		return res;
+	}
+
 }
 		
 	

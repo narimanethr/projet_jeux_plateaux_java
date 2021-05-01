@@ -8,5 +8,8 @@ public class Ocean extends Tuile {
 		super(res,cap,y,x);
 		this.name="ocean";
 	}
+	public boolean isFree() {
+		return false;
+	}
 
 }

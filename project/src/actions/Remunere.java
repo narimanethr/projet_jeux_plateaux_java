@@ -1,14 +1,14 @@
 package actions;
 
-import Joueur.Joueur;
+import Joueur.JoueurAgricole;
 import plateaux.PlateauAgricole;
 
-public class Remunere {
+public class Remunere implements Action {
 	private PlateauAgricole plateau;
 	public Remunere(PlateauAgricole p) {
 		this.plateau=p;
 	}
-	public void execute (Joueur j) {
+	public void execute (JoueurAgricole j) {
 		for(int x=0;x<this.plateau.getLargeur();x++){
 			for (int y=0;y<this.plateau.getHauteur();y++) {
 				if (this.plateau.getTuile(y, x).getProprietaire()==j) {
