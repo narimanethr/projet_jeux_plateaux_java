@@ -10,5 +10,7 @@ public interface Joueur {
 	public int getUnites();
 	public void addUnites(int n);
 	public void subUnites(int n);
+	public String getName();
+	public void setName(String string);
 
 }

@@ -33,7 +33,7 @@ public class Nourir implements Action {
 		}
 		
 	}
-	int coutArmee(Tuile t) {
+	public int coutArmee(Tuile t) {
 		int res=0;
 		if(t.getPeresonnage()!=null) {
 			if (t instanceof Desert) {

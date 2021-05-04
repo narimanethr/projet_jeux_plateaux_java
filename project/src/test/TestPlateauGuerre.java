@@ -1,8 +1,10 @@
+package test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class testRecolterGuerre {
+class TestPlateauGuerre {
 
 	@Test
 	void test() {
