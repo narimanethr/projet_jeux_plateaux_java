@@ -19,26 +19,29 @@ import tuiles.Ocean;
 import tuiles.Tuile;
 
 class TestNeRienFaireAgricole {
-	private JoueurAgricole j;
-	private PlateauAgricole p;
-	private NeRienFaireAgricole a;
-	private Tuile t;
-	private Roches r ;
-	private Ouvrier o;
-
+	
 	@Test
 	void TestExecute() {
-		this.j = new JoueurAgricole("p1");
-		this.p = new PlateauAgricole(10, 20);
-		this.a = new NeRienFaireAgricole(p);
-		for(int x=0;x<this.p.getLargeur();x++){
-			for (int y=0;y<this.p.getHauteur();y++) {
-				this.p.getTuile(7, 2).setProprietaire(j);
-				if(this.p.getTuile(7, 2).getProprietaire()==j) {
-					a.RecoisPieces(j, this.p.getTuile(7, 2));
+		 JoueurAgricole j = new JoueurAgricole("p1");
+		 PlateauAgricole  p = new PlateauAgricole(10, 20);
+		 NeRienFaireAgricole a = new NeRienFaireAgricole(p);
+		for(int y=0;y<p.getHauteur();y++){
+			for (int x=0;x<p.getLargeur();x++) {
+				if(p.getTuile(y, x).getProprietaire()==j) {
+					int nbrOrinit = p.getTuile(y, x).getProprietaire().getNbOr();
+					a.execute(j);
+					int nbrOrAfter = p.getTuile(y, x).getProprietaire().getNbOr();
+					assertTrue(nbrOrAfter>nbrOrinit);
+					
+					
 				}
 				
+			
+				
 			}
+		}
+	}
+	
 		
 	
 		
@@ -47,26 +50,32 @@ class TestNeRienFaireAgricole {
 		
 		
 		
-	}
-	}
+	
 	@Test
 	void  TestRecoisPieces() {
-		this.j = new JoueurAgricole("p1");
-		this.r = new Roches();
-		this.t = new Montagne(r,3,2,2);
-		this.o = new Ouvrier(2);
-		this.t.setProprietaire(j);
-		this.t.setPersonnage(o);
-		if (t.getName()=="foret" ||t.getName()=="plaine") {
-			j.addNbOr(1);
-			assertEquals(16,j.getNbOr());
+		JoueurAgricole j2 = new JoueurAgricole("p2");
+		PlateauAgricole  p2 = new PlateauAgricole(1, 1);
+		 NeRienFaireAgricole a = new NeRienFaireAgricole(p2);
+		for(int y=0;y<p2.getHauteur();y++){
+			for (int x=0;x<p2.getHauteur();x++) {
+				if (p2.getTuile(y, x).getName()=="foret" ||p2.getTuile(y, x).getName()=="plaine") {
+					j2.addNbOr(1);
+					assertEquals(16,j2.getNbOr());
+				}
+				else if(p2.getTuile(y, x).getName()=="desert" ) {
+					j2.addNbOr(2);
+					assertEquals(17,j2.getNbOr());
+				}
+			}
 		}
-		else if(t.getName()=="desert" ) {
-			j.addNbOr(2);
-			assertEquals(17,j.getNbOr());
-		}
-	
-	
 	}
-
 }
+		
+		
+		
+	
+	
+	
+
+		
+		

@@ -17,25 +17,24 @@ import ressources.agricole.Roches;
 import tuiles.Ocean;
 
 class TestDeployerAgricole {
-	private PlateauAgricole p;
-	private Ouvrier o;
-	private JoueurAgricole j1;
-	private DeployerAgricole a;
-	private Ocean o1;
+	
 	
 
 	@Test
 	void TestExecute() throws NoteFreeTileException {
-		this.p = new PlateauAgricole(20,10);
-		this.j1 = new JoueurAgricole("player1");
-		this.o= new Ouvrier(2);
-		this.a = new DeployerAgricole(p);
-		for(int x=0;x<this.p.getLargeur();x++){
-			for (int y=0;y<this.p.getHauteur();y++) {
-				if(!(this.p.getTuile(5, 3) instanceof Ocean)) {
-					this.a.execute(j1, 5, 3, o);
-				assertEquals(j1,p.getTuile(5, 3).getProprietaire());
-				assertEquals(34,j1.getNbPersonnage());
+		PlateauAgricole p = new PlateauAgricole(20,10);
+		JoueurAgricole j1 = new JoueurAgricole("player1");
+		Ouvrier o= new Ouvrier(2);
+		DeployerAgricole a = new DeployerAgricole(p);
+		for(int x=0;x<p.getLargeur();x++){
+			for (int y=0;y<p.getHauteur();y++) {
+				if(!(p.getTuile(y, x) instanceof Ocean) & p.getTuile(y, x).isFree()) {
+					int nbrPersonnageinit = j1.getNbPersonnage();
+					a.execute(j1, y, x, o);
+					int nbrPersonnageAfter = j1.getNbPersonnage();
+				assertEquals(j1,p.getTuile(y, x).getProprietaire()); 
+				assertTrue(nbrPersonnageAfter<nbrPersonnageinit);
+				
 				
 				
 				}
@@ -51,15 +50,23 @@ class TestDeployerAgricole {
 	}
 		@Test
 		public void TestNoteFreeTileExceptionthrows() throws NoteFreeTileException {
-			this.p = new PlateauAgricole(20,10);
-			this.j1 = new JoueurAgricole("player1");
-			this.o= new Ouvrier(2);
-			this.a = new DeployerAgricole(p);
-			this.a.execute(j1, 1, 1, o);
+			PlateauAgricole p2 = new PlateauAgricole(20,10);
+			JoueurAgricole j2 = new JoueurAgricole("player1");
+			Ouvrier o2= new Ouvrier(1);
+			DeployerAgricole a2 = new DeployerAgricole(p2);
+			for(int y=0;y<p2.getHauteur();y++){
+				for (int x=0;x<p2.getLargeur();x++) {
+					if(!(p2.getTuile(y, x) instanceof Ocean) & !(p2.getTuile(y, x).isFree())) {
+						a2.execute(j2, 0, 0, o2);
+						
+					}
+				
 			
 			
 			
 			
+		}
+	}
 		}
 		
 		

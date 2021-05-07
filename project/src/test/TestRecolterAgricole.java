@@ -1,38 +1,51 @@
 package test;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
 import Joueur.JoueurAgricole;
+import actions.DeployerAgricole;
+import actions.DeployerGuerre;
 import actions.RecolterAgricole;
+import actions.RecolterGuerre;
+import exception.NoteFreeTileException;
+import personnages.Ouvrier;
 import plateaux.PlateauAgricole;
+import ressources.agricole.RessourceAgricole;
 import ressources.agricole.Roches;
 import tuiles.Montagne;
 import tuiles.Ocean;
 
 class TestRecolterAgricole {
-	private PlateauAgricole p;
-	private JoueurAgricole j1;
+	
 
 
 	@Test
-	void TestExecute() {
-		this.p = new PlateauAgricole(10,20);
-		this.j1 = new JoueurAgricole("j1");
-		for(int x=0;x<this.p.getLargeur();x++){
-			for (int y=0;y<this.p.getHauteur();y++) {
-				if(!(this.p.getTuile(5, 3) instanceof Ocean)) {
-					this.p.getTuile(5, 3).setProprietaire(j1);
-					assertEquals(j1,this.p.getTuile(5, 3).getProprietaire());
-					j1.setRessources(this.p.getTuile(5, 3).getRes());
-					assertEquals(j1.getRessources(),this.p.getTuile(5, 3).getRes());
+	void TestExecute() throws NoteFreeTileException {
+		Ouvrier o = new Ouvrier(1);
+		PlateauAgricole p = new PlateauAgricole(5,10);
+		 JoueurAgricole j1 = new  JoueurAgricole("j1");
+		 RecolterAgricole r = new RecolterAgricole(p);
+		 DeployerAgricole d= new DeployerAgricole(p);
+		 for(int y=0;y<p.getHauteur();y++){
+				for (int x=0;y<p.getLargeur();x++) {
+					if(p.getTuile(y, x).getProprietaire()==j1) {
+						int  Resinit = j1.getRessources().size();
+						d.execute(j1, y, x, o);
+						r.execute(j1);
+						int ResAfter = j1.getRessources().size();
+						assertTrue( ResAfter> Resinit );
+					
+					}
 				}
-				
-				
 			}
+		
 				
-			}
+			
 		
 	}
 

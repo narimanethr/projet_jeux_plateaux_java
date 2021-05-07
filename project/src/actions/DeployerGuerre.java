@@ -75,7 +75,7 @@ public class DeployerGuerre implements Action{
 	}
 	
 	
-	int converTailleTuile(Tuile t,Joueur j){
+	public int converTailleTuile(Tuile t,Joueur j){
 		int res=0;
 		if(!t.isFree() && t.getPeresonnage()!=null) {
 			if (t instanceof Montagne & t.getProprietaire()!=j) {

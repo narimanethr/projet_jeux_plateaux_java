@@ -14,40 +14,46 @@ import ressources.agricole.Sable;
 import tuiles.Desert;
 
 class TestNourir {
-	private Armee a;
-	private JoueurGuerre p1;
-	private PlateauGuerre pl;
-	private int cout ;
-	private Nourir n;
-	private Sable s;
-	private Desert d;
+
 
 	@Test
 	void TestExecute() {
-		int cout = 0;
-		this.pl = new PlateauGuerre(10,20);
-		this.p1 = new JoueurGuerre("player1");
-		this.a = new Armee(2);
-		this.n = new Nourir(pl);
-		for(int x=0;x<this.pl.getLargeur();x++){
-			for (int y=0;y<this.pl.getHauteur();y++) {
-				this.pl.getTuile(5, 5).setProprietaire(p1);
-				this.pl.getTuile(5, 5).setPersonnage(a);
-				 cout= n.coutArmee(this.pl.getTuile(5, 5));
-				 if(this.pl.getTuile(5, 5).getProprietaire().getUnites()>=cout){
-						this.pl.getTuile(5, 5).getProprietaire().subUnites(cout);
-						this.pl.getTuile(5, 5).getPeresonnage().addNbOr(cout);
-						assertEquals(cout,this.pl.getTuile(5, 5).getPeresonnage().getNbOr());
-					}
-					else {
-						this.pl.getTuile(5, 5).setPersonnage(null);
-						assertEquals(null,this.pl.getTuile(5, 5).getPeresonnage());
-						this.pl.getTuile(5, 5).getProprietaire().addUnites(1);
-						assertEquals(11,this.pl.getTuile(5, 5).getProprietaire().getUnites());
-						this.pl.getTuile(5, 5).setProprietaire(null);
-						assertEquals(null,this.pl.getTuile(5, 5).getProprietaire());
-						
-					}
+		
+		 PlateauGuerre pl = new PlateauGuerre(10,20);
+		 JoueurGuerre p1 = new JoueurGuerre("player1");
+		Armee a = new Armee(2);
+		Nourir n = new Nourir(pl);
+		for(int y=0;y<pl.getHauteur();y++){
+			for (int x=0;x<pl.getLargeur();x++) {
+				
+				 int cout= n.coutArmee(pl.getTuile(y, x));
+				 if(pl.getTuile(y, x).getProprietaire()==p1 &(pl.getTuile(y, x).getPeresonnage()!=null) ){
+				 if(pl.getTuile(y, x).getProprietaire().getUnites()>=cout) {
+					 int unitInit = pl.getTuile(y, x).getProprietaire().getUnites();
+					 int nbOrInit =pl.getTuile(y, x).getProprietaire().getNbOr();
+					 n.execute(p1);
+					 int unitAfter = pl.getTuile(y, x).getProprietaire().getUnites();
+					 int nbOrAfter =pl.getTuile(y, x).getProprietaire().getNbOr();
+					 assertTrue(unitAfter<unitInit);
+					 assertTrue(nbOrAfter >nbOrInit);
+					 
+				 }else {
+					 int unitInit = pl.getTuile(y, x).getProprietaire().getUnites();
+					 n.execute(p1);
+					 int unitAfter = pl.getTuile(y, x).getProprietaire().getUnites();
+					 assertTrue(unitAfter>unitInit);
+					 assertEquals(null, pl.getTuile(y, x).getProprietaire());
+					 assertTrue(pl.getTuile(y, x).getPeresonnage()==null);
+				
+					 
+
+					 
+					 
+				 }
+				 }
+				
+				 
+				
 				
 				
 				
@@ -61,17 +67,38 @@ class TestNourir {
 
 	@Test
 	void TestCoutArmee() {
-		int res = 0;
-		this.s = new Sable();
-		this.d= new Desert (s,3,2,1);
-		this.a = new Armee(2);
-		this.p1= new JoueurGuerre("player1");
-		this.d.setPersonnage(a);
-		this.d.setProprietaire(p1);
-		res = this.d.getPeresonnage().getTaille()*2;
-		assertEquals(4,res);
-		
-		
-	}
 
+		PlateauGuerre p2 = new PlateauGuerre(10,20);
+		 JoueurGuerre j2 = new JoueurGuerre("player1");
+		Armee a2 = new Armee(2);
+		Nourir n2 = new Nourir(p2);
+		for(int y=0;y<p2.getHauteur();y++){
+			for (int x=0;x<p2.getLargeur();x++) {
+				if(p2.getTuile(y, x).getPeresonnage()!=null) {
+					if (p2.getTuile(y, x) instanceof Desert) {
+						int tailleinit = p2.getTuile(y, x).getPeresonnage().getTaille();
+						n2.coutArmee(p2.getTuile(y, x));
+						int tailleFinal = p2.getTuile(y, x).getPeresonnage().getTaille();
+						assertTrue(tailleFinal>tailleinit);
+						
+						
+						
+					}
+					else {
+						int tailleinit = p2.getTuile(y, x).getPeresonnage().getTaille();
+						n2.coutArmee(p2.getTuile(y, x));
+						int tailleFinal = p2.getTuile(y, x).getPeresonnage().getTaille();
+						assertTrue(tailleFinal==tailleinit);
+						
+					}
+				}
+				
+				
+				
+			}
+		}
+		
+	
+
+}
 }
