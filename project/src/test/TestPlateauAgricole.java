@@ -42,10 +42,30 @@ class TestPlateauAgricole {
 	}
 	@Test
 	void TestTuileAleatoire(){
+		
 	
 }
 	@Test 
 	void TesthasAjNotOcean() {
+		boolean res = false;
+		PlateauAgricole p = new PlateauAgricole(10,20);
+		for (int y=0;y<p.getHauteur();y++) {
+			for (int x=0; x<p.getLargeur();x++) {
+				if(!(p.getTuile(y, x) instanceof Ocean)) {
+					p.hasAjNotOcean(y, x);
+					assertTrue(res);
+					
+				}
+				
+			
+				
+			}
+			
+		
+	}
+	}
+	@Test 
+	void TestAffiche() {
 		
 	}
 	@Test

@@ -5,6 +5,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import Joueur.JoueurAgricole;
+import actions.DeployerAgricole;
+import actions.RecolterAgricole;
+import actions.Remunere;
+import exception.NoteFreeTileException;
+import exception.RangeOutOfCapacityTileException;
+import exception.StockEmptyException;
 import personnages.Armee;
 import plateaux.PlateauAgricole;
 
@@ -15,30 +21,44 @@ class TestRenumere {
 	
 
 	@Test
-	void TestExecute() {
-		this.p = new PlateauAgricole(10,20);
-		this.j = new JoueurAgricole("j1");
-		this.a = new Armee(2);
-		for(int x=0;x<this.p.getLargeur();x++){
-			for (int y=0;y<this.p.getHauteur();y++) {
-				this.p.getTuile(6, 3).setProprietaire(j);
-				this.p.getTuile(6, 3).setPersonnage(a);
-				if(this.p.getTuile(6, 3).getProprietaire().getUnites()>=1) {
-					this.p.getTuile(6, 3).getProprietaire().subNbOr(1);
-					assertEquals(14,j.getNbOr());
-					this.p.getTuile(6, 3).getPeresonnage().addNbOr(1);
-					assertEquals(1,p.getTuile(6, 3).getPeresonnage().getNbOr());
-					
-					
+	void TestExecute() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
+		PlateauAgricole p = new PlateauAgricole(10,20);
+		JoueurAgricole j = new JoueurAgricole("j1");
+		Armee a = new Armee(2);
+		DeployerAgricole d = new DeployerAgricole(p);
+		RecolterAgricole r = new RecolterAgricole(p);
+		Remunere re = new Remunere(p);
+		for(int y=0;y<p.getHauteur();y++){
+			for (int x=0;x<p.getLargeur();x++) {
+				if (p.getTuile(y, x).getProprietaire()==j) {
+					if(p.getTuile(y, x).getProprietaire().getUnites()>=1) {
+						int nbOrInit = p.getTuile(y, x).getProprietaire().getNbOr();
+						d.execute(j, y, x, a);
+						r.execute(j);
+						re.execute(j);
+						int nbOrAfter = p.getTuile(y, x).getProprietaire().getNbOr();
+						assertTrue(nbOrAfter<nbOrInit);
+						
+						
+						
+						
+						
+						
+					}
+					else {
+						d.execute(j, y, x, a);
+						r.execute(j);
+						re.execute(j);
+						assertEquals(null,p.getTuile(y, x).getProprietaire());
+						assertEquals(null,p.getTuile(y, x).getPeresonnage());
+						
+						
+						
+					}
 					
 				}
-				else {
-					this.p.getTuile(6, 3).setPersonnage(null);
-					this.p.getTuile(6, 3).setProprietaire(null);
-					assertEquals(null,p.getTuile(6, 3).getPeresonnage());
-					assertEquals(null,p.getTuile(6,3).getProprietaire());
-					
-				}
+
+				
 				
 			}
 		
