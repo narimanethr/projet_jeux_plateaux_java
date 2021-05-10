@@ -81,7 +81,9 @@ public abstract class Tuile {
 	public void setPersonnage(Personnage p) {
 		this.peresonnage=p;
 	}
-	
+    public boolean hasProprietaire() {
+    	return this.proprietaire!=null;
+    }
 
 	
 }
