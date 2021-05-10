@@ -39,10 +39,7 @@ class TestRenumere {
 						int nbOrAfter = p.getTuile(y, x).getProprietaire().getNbOr();
 						assertTrue(nbOrAfter<nbOrInit);
 						
-						
-						
-						
-						
+							
 						
 					}
 					else {

@@ -21,9 +21,7 @@ class TestJoueurAgricole {
 	   }
 	   @Test
 	   public void TestSetRessources() {
-		   
-		 
-		   
+		      
 		  
 	   }
 	   @Test

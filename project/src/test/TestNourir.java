@@ -23,55 +23,40 @@ class TestNourir {
 
 	@Test
 	void TestExecute() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
-		
-		 PlateauGuerre pl = new PlateauGuerre(10,20);
-		 JoueurGuerre p1 = new JoueurGuerre("player1");
+
+		PlateauGuerre pl = new PlateauGuerre(10,20);
+		JoueurGuerre p1 = new JoueurGuerre("player1");
 		Armee a = new Armee(2);
 		Nourir n = new Nourir(pl);
 		DeployerGuerre d = new DeployerGuerre(pl);
 		RecolterGuerre re = new RecolterGuerre(pl);
 		for(int y=0;y<pl.getHauteur();y++){
 			for (int x=0;x<pl.getLargeur();x++) {
-				
-				 int cout= n.coutArmee(pl.getTuile(y, x));
-				 if(pl.getTuile(y, x).getProprietaire()==p1 &(pl.getTuile(y, x).getPeresonnage()!=null) ){
-				 if(pl.getTuile(y, x).getProprietaire().getUnites()>=cout) {
-					 int unitInit = pl.getTuile(y, x).getProprietaire().getUnites();
-					 int nbOrInit =pl.getTuile(y, x).getProprietaire().getNbOr();
-					 d.execute(p1, y, x, a);
-					 re.execute(p1);
-					 n.execute(p1);
-					 int unitAfter = pl.getTuile(y, x).getProprietaire().getUnites();
-					 int nbOrAfter =pl.getTuile(y, x).getProprietaire().getNbOr();
-					 assertTrue(unitAfter<unitInit);
-					 assertTrue(nbOrAfter >nbOrInit);
-					 
-				 }else {
-					 int unitInit = pl.getTuile(y, x).getProprietaire().getUnites();
-					 n.execute(p1);
-					 int unitAfter = pl.getTuile(y, x).getProprietaire().getUnites();
-					 assertTrue(unitAfter>unitInit);
-					 assertEquals(null, pl.getTuile(y, x).getProprietaire());
-					 assertTrue(pl.getTuile(y, x).getPeresonnage()==null);
-				
-					 
+				int cout= n.coutArmee(pl.getTuile(y, x));
+				if(pl.getTuile(y, x).getProprietaire()==p1 &(pl.getTuile(y, x).getPeresonnage()!=null) ){
+					if(pl.getTuile(y, x).getProprietaire().getUnites()>=cout) {
+						int unitInit = pl.getTuile(y, x).getProprietaire().getUnites();
+						int nbOrInit =pl.getTuile(y, x).getProprietaire().getNbOr();
+						d.execute(p1, y, x, a);
+						re.execute(p1);
+						n.execute(p1);
+						int unitAfter = pl.getTuile(y, x).getProprietaire().getUnites();
+						int nbOrAfter =pl.getTuile(y, x).getProprietaire().getNbOr();
+						assertTrue(unitAfter<unitInit);
+						assertTrue(nbOrAfter >nbOrInit);
 
-					 
-					 
-				 }
-				 }
-				
-				 
-				
-				
-				
-				
+					}else {
+						int unitInit = pl.getTuile(y, x).getProprietaire().getUnites();
+						n.execute(p1);
+						int unitAfter = pl.getTuile(y, x).getProprietaire().getUnites();
+						assertTrue(unitAfter>unitInit);
+						assertEquals(null, pl.getTuile(y, x).getProprietaire());
+						assertTrue(pl.getTuile(y, x).getPeresonnage()==null);
+					}
+				}
 			}
 
-		
-	
-		
-	}
+		}
 	}
 
 	@Test

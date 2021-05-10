@@ -42,11 +42,7 @@ class TestRecolterAgricole {
 					
 					}
 				}
-			}
-		
-				
-			
-		
+			}			
 	}
 
 }

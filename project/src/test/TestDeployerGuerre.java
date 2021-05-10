@@ -24,48 +24,31 @@ class TestDeployerGuerre {
 	
 	@Test
 	void TestExecute() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
-		PlateauGuerre p = new PlateauGuerre(1,1);
+		PlateauGuerre p = new PlateauGuerre(4,4);
 		JoueurGuerre j1 = new JoueurGuerre("player1");
-		 DeployerGuerre d = new  DeployerGuerre(p);
-		 Armee a = new Armee(1);
+		DeployerGuerre d = new  DeployerGuerre(p);
+		Armee a = new Armee(1);
 		for(int y=0;y<p.getHauteur();y++){
 			for (int x=0;x<p.getLargeur();x++) {
-					if( p.getTuile(y, x).getPeresonnage().getTaille()<=p.getTuile(y,x).getCapacite()) {
-						if(p.getTuile(y,x).isFree()){
-							if(j1.getNbPersonnage()>=p.getTuile(y, x).getPeresonnage().getTaille()){
-								int nbrPersonneInit = j1.getNbPersonnage();
-								d.execute(j1, y, x, a);
-								int nbrPersonneAfter = j1.getNbPersonnage();
-								assertEquals(a,p.getTuile(y, x).getPeresonnage());
-								assertEquals(j1,p.getTuile(y, x).getProprietaire());
-								assertTrue( nbrPersonneAfter==nbrPersonneInit-a.getTaille());
-							}
-					
-				}
-				
-				
-
+				Tuile t = p.getTuile(y,x);
+					if(t.isFree() & j1.getNbPersonnage()>=a.getTaille()& a.getTaille()<=t.getCapacite()){
+							int nbrPersonneInit = j1.getNbPersonnage();
+							d.execute(j1, y, x, a);
+							int nbrPersonneAfter = j1.getNbPersonnage();
+							assertEquals(a,p.getTuile(y, x).getPeresonnage());
+							assertEquals(j1,p.getTuile(y, x).getProprietaire());
+							assertTrue( nbrPersonneAfter==nbrPersonneInit-a.getTaille());
+					}			
 			}
-				}
-			}
-				
-					
-				
-				
+		}
+		
+		}
+	
+	@Test (expected = RangeOutOfCapacityTileException.class )
+	void TestRangeOutOfCapacityTileException() {
+		
 	}
-		
-		
-		
-		
-		
-		
-		
-
-	
-
-		
-		
-	
+			
 	@Test
 	void TestConverTailleTuile() {
 		PlateauGuerre p2 = new PlateauGuerre(1,1);
@@ -80,8 +63,6 @@ class TestDeployerGuerre {
 						d2.converTailleTuile(p2.getTuile(y, x),j2);
 						int tailleAfter = p2.getTuile(y, x).getPeresonnage().getTaille();
 						assertTrue(tailleAfter>tailleInit);
-						
-						
 						
 						
 						
@@ -106,6 +87,7 @@ class TestDeployerGuerre {
 		
 		
 	}
+	
 
 
 }

@@ -39,7 +39,7 @@ public class DeployerGuerre implements Action{
 		Tuile[] t=new Tuile[4];
 		for(int i=0;i<4;i++) {
 			t[i]=null;
-			}
+		}
 		if (y<this.plateau.getHauteur()-1 & y>=0) {
 			t[0]=this.plateau.getTuile(y+1,x);
 		}
@@ -61,17 +61,17 @@ public class DeployerGuerre implements Action{
 				else if(v<1 & t[i].getProprietaire()!=j &!t[i].isFree()) {
 					t[i].setProprietaire(j);
 					a.addNbOr(2);
-					
+
 				}
 				else if(a.getTaille()<v) {
 					a.addTaille(1);
 					a.addNbOr(1);
 				}
-				
+
 			}
-		
-			}
-		
+
+		}
+
 	}
 	
 	

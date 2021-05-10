@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 
 import Joueur.Joueur;
 import Joueur.JoueurAgricole;
+import actions.DeployerAgricole;
 import actions.NeRienFaireAgricole;
+import exception.NoteFreeTileException;
 import personnages.Armee;
 import personnages.Ouvrier;
 import plateaux.PlateauAgricole;
@@ -14,42 +16,53 @@ import ressources.agricole.Ble;
 import ressources.agricole.Roches;
 import ressources.agricole.Sable;
 import tuiles.Desert;
+import tuiles.Foret;
 import tuiles.Montagne;
 import tuiles.Ocean;
+import tuiles.Plaine;
 import tuiles.Tuile;
 
 class TestNeRienFaireAgricole {
-	
 	@Test
 	void TestExecute() {
-		 JoueurAgricole j = new JoueurAgricole("p1");
-		 PlateauAgricole  p = new PlateauAgricole(10, 20);
-		 NeRienFaireAgricole a = new NeRienFaireAgricole(p);
-		for(int y=0;y<p.getHauteur();y++){
-			for (int x=0;x<p.getLargeur();x++) {
-				if(p.getTuile(y, x).getProprietaire()==j) {
-					int nbrOrinit = p.getTuile(y, x).getProprietaire().getNbOr();
-					a.execute(j);
-					int nbrOrAfter = p.getTuile(y, x).getProprietaire().getNbOr();
-					assertTrue(nbrOrAfter>nbrOrinit);
-					
-					
+		JoueurAgricole j = new JoueurAgricole("p1");
+		PlateauAgricole  p = new PlateauAgricole(10, 20);
+		NeRienFaireAgricole a = new NeRienFaireAgricole(p);
+		int nbOrInit = j.getNbOr();
+		a.execute(j);
+		int nbOrAfter = j.getNbOr();
+		assertTrue(nbOrInit==nbOrAfter);
+		
+
+	}
+	@Test
+	void TestExecute2() throws NoteFreeTileException {
+		JoueurAgricole j = new JoueurAgricole("p1");
+		PlateauAgricole  p = new PlateauAgricole(10, 20);
+		NeRienFaireAgricole a = new NeRienFaireAgricole(p);
+		DeployerAgricole d = new DeployerAgricole(p);
+		Ouvrier o = new Ouvrier(1);
+		int nbOrInit = j.getNbOr();
+		for(int x=0;x<p.getLargeur();x++){
+			for (int y=0;y<p.getHauteur();y++) {
+				if(p.getTuile(y, x).isFree() ) {
+					d.execute(j, y, x, o);	
+					if(p.getTuile(y, x) instanceof Desert  ) {
+						nbOrInit+=2;
+					}
+					else if (p.getTuile(y, x) instanceof Plaine || p.getTuile(y, x) instanceof Foret  ) {
+						nbOrInit+=1;
+						
+					}
 				}
-				
-			
-				
 			}
 		}
+		a.execute(j);
+		int nbOrAfter = j.getNbOr();
+		assertTrue(nbOrInit==nbOrAfter);
+		
 	}
 	
-		
-	
-		
-		
-		
-		
-		
-		
 	
 	@Test
 	void  TestRecoisPieces() {
