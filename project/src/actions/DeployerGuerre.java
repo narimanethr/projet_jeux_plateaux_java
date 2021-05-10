@@ -31,7 +31,7 @@ public class DeployerGuerre implements Action{
 			}
 		}
 		else {
-			throw new RangeOutOfCapacityTileException("taille de l'armee est supperieur à la capacité de la tuile ");
+			throw new RangeOutOfCapacityTileException("taille de l'armee est supperieur ï¿½ la capacitï¿½ de la tuile ");
 		}
 
 	}
@@ -55,10 +55,10 @@ public class DeployerGuerre implements Action{
 		for(int i=0;i<4;i++) {
 			if(t[i]!=null) {
 				int v= converTailleTuile(t[i],j);
-				if(v<a.getTaille() & t[i].getProprietaire()!=j & !t[i].isFree() & t[i].getPeresonnage()!=null) {
+				if(v<a.getTaille() &  t[i].hasProprietaire() & t[i].getProprietaire()!=j) {
 					t[i].getPeresonnage().subTaille(v/2);
 				}
-				else if(v<1 & t[i].getProprietaire()!=j &!t[i].isFree()) {
+				else if(v<1  & t[i].hasProprietaire() & t[i].getProprietaire()!=j) { // type ocean 
 					t[i].setProprietaire(j);
 					a.addNbOr(2);
 
