@@ -1,6 +1,6 @@
 package Joueur;
 
-public class JoueurGuerre extends JoueurAgricole implements Joueur {
+public class JoueurGuerre extends Joueur {
 
 	public JoueurGuerre(String name) {
 		super( name);
