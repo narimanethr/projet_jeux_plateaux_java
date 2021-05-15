@@ -15,8 +15,16 @@ import exception.StockEmptyException;
 import personnages.Armee;
 import personnages.Personnage;
 import plateaux.PlateauGuerre;
+import ressources.Ressources;
 import ressources.agricole.Sable;
+import ressources.guerre.Ble;
+import ressources.guerre.Bois;
+import ressources.guerre.Roches;
 import tuiles.Desert;
+import tuiles.Foret;
+import tuiles.Montagne;
+import tuiles.Plaine;
+import tuiles.Tuile;
 
 public class TestNourir {
 
@@ -45,49 +53,28 @@ public class TestNourir {
 		}
 	}
 
-	@Test // a refaire
-	public void TestCoutArmee() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
+	@Test 
+	public void TestCoutArmee() {
+		Nourir n = new Nourir(new PlateauGuerre(4,2));
+		Armee a=new Armee(2);
+		Tuile plaine= new Plaine(new Ble(),5,0,0);
+		Tuile montagne= new Montagne(new Roches(),3,0,0);
+		Tuile foret =new Foret(new Bois(),3,0,0);
+		Tuile desert= new Desert(new Sable(),5,0,0);
+		plaine.setPersonnage(a);
+		montagne.setPersonnage(a);
+		foret.setPersonnage(a);
+		desert.setPersonnage(a);
+		assertTrue(n.coutArmee(desert)==4);
+		assertTrue(n.coutArmee(foret)==2);
+		assertTrue(n.coutArmee(montagne)==2);
+		assertTrue(n.coutArmee(plaine)==2);
 
-		PlateauGuerre p2 = new PlateauGuerre(10,20);
-		 JoueurGuerre j2 = new JoueurGuerre("player1");
-		Armee a2 = new Armee(2);
-		Nourir n2 = new Nourir(p2);
-		DeployerGuerre a3 = new DeployerGuerre(p2);
-		RecolterGuerre r = new RecolterGuerre(p2);
-		for(int y=0;y<p2.getHauteur();y++){
-			for (int x=0;x<p2.getLargeur();x++) {
-				if(p2.getTuile(y, x).getPeresonnage()!=null) {
-					if (p2.getTuile(y, x) instanceof Desert) {
-						int tailleinit = p2.getTuile(y, x).getPeresonnage().getTaille();
-						a3.execute(j2, y, x, a2);
-						r.execute(j2);
-						n2.execute(j2);
-						n2.coutArmee(p2.getTuile(y, x));
-						int tailleFinal = p2.getTuile(y, x).getPeresonnage().getTaille();
-						assertTrue(tailleFinal>tailleinit);
-						
-						
-					}
-					else {
-						a3.execute(j2, y, x, a2);
-						r.execute(j2);
-						int tailleinit = p2.getTuile(y, x).getPeresonnage().getTaille();
-						n2.execute(j2);
-						n2.coutArmee(p2.getTuile(y, x));
-						int tailleFinal = p2.getTuile(y, x).getPeresonnage().getTaille();
-						assertTrue(tailleFinal==tailleinit);
-						
-					}
-				}
-				
-				
-				
-			}
-		}
+	}
 		
 		
 	
 
-}
+
 	
 }
