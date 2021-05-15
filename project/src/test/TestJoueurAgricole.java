@@ -1,11 +1,10 @@
 package test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
+import static org.junit.Assert.*;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
 import Joueur.Joueur;
 import Joueur.JoueurAgricole;
 import ressources.agricole.RessourceAgricole;

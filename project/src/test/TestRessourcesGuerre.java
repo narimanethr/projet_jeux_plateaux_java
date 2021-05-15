@@ -1,14 +1,18 @@
 package test;
-import static org.junit.Assert.assertEquals;
-import org.junit.jupiter.api.Test;
+
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
 import ressources.guerre.*;
-class TestRessourcesGuerre {
+public class TestRessourcesGuerre {
 	private Ble r1;
 	private Bois r2;
 	private Roches r3;
 	private Sable r4;
 	@Test
-	void TestGetUnit() {
+	public void TestGetUnit() {
 		this.r1 = new Ble();
 		this.r2 = new Bois();
 		this.r3 = new Roches();

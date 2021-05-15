@@ -1,6 +1,6 @@
 package test;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.*;
+import org.junit.Test;
 import Joueur.Joueur;
 import Joueur.JoueurAgricole;
 import actions.DeployerAgricole;
@@ -9,16 +9,19 @@ import personnages.Ouvrier;
 import plateaux.PlateauAgricole;
 import ressources.agricole.Roches;
 import tuiles.Ocean;
-class TestDeployerAgricole {
+public class TestDeployerAgricole {
 
 	@Test
-	void TestExecute() throws NoteFreeTileException {
+	public void TestExecute() throws NoteFreeTileException {
 		PlateauAgricole p = new PlateauAgricole(20,10);
 		JoueurAgricole j1 = new JoueurAgricole("player1");
 		Ouvrier o= new Ouvrier(1);
 		DeployerAgricole a = new DeployerAgricole(p);
+	
+		
 		for(int x=0;x<p.getLargeur();x++){
 			for (int y=0;y<p.getHauteur();y++) {
+				assertEquals(null,p.getTuile(y, x).getProprietaire()); // précondition 
 				if(p.getTuile(y, x).isFree() ) {
 					int nbrPersonnageinit = j1.getNbPersonnage();
 					a.execute(j1, y, x, o);

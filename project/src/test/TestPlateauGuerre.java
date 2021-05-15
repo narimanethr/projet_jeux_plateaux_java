@@ -1,13 +1,11 @@
 package test;
+import static org.junit.Assert.*;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
-
-class TestPlateauGuerre {
+import org.junit.Test;
+public class TestPlateauGuerre {
 
 	@Test
-	void test() {
+	public void test() {
 		
 	}
 

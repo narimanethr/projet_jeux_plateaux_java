@@ -1,8 +1,8 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import ressources.agricole.Ble;
 import ressources.agricole.Bois;
@@ -10,14 +10,14 @@ import ressources.agricole.RessourceAgricole;
 import ressources.agricole.Roches;
 import ressources.agricole.Sable;
 
-class TestRessourcesAgricole {
+public class TestRessourcesAgricole {
 	private RessourceAgricole r1;
 	private RessourceAgricole r2;
 	private RessourceAgricole r3;
 	private RessourceAgricole r4;
 
 	@Test
-	void TestGetUnit() {
+	public void TestGetUnit() {
 		this.r1 = new Ble();
 		this.r2 = new Bois();
 		this.r3 = new Roches();
