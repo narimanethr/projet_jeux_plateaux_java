@@ -15,7 +15,7 @@ public class Nourir implements Action {
 	public void execute (JoueurGuerre j) {
 		for(int x=0;x<this.plateau.getLargeur();x++){
 			for (int y=0;y<this.plateau.getHauteur();y++) {
-				if(this.plateau.getTuile(y, x).getProprietaire()==j &(this.plateau.getTuile(y, x).getPeresonnage()!=null) ){ //comment avoir 
+				if(this.plateau.getTuile(y, x).hasProprietaire() &this.plateau.getTuile(y, x).getProprietaire()==j){ 
 					int cout=coutArmee(this.plateau.getTuile(y, x));
 					if(this.plateau.getTuile(y, x).getProprietaire().getUnites()>=cout){
 						this.plateau.getTuile(y, x).getProprietaire().subUnites(cout);

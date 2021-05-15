@@ -29,7 +29,7 @@ public class JoueurAgricole implements Joueur{
 		
 	}
 	public void setRessources(Ressources k) {
-		int v = this.ressources.get(k);
+		 int v = this.ressources.get(k);
 		this.ressources.replace((RessourceAgricole) k, v+1);
 		
 	}
@@ -98,7 +98,9 @@ public class JoueurAgricole implements Joueur{
 	public void subUnites(int n) {
 		this.unites -=n;
 	}
-
+	public boolean StockEmpty() {
+		return this.nbPersonnage==0;
+	}
 
 
 }

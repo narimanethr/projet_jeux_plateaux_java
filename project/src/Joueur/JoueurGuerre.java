@@ -8,4 +8,5 @@ public class JoueurGuerre extends JoueurAgricole implements Joueur {
 		this.nbOr=0;   
 		
 	}
+	
 }
