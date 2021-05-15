@@ -1,5 +1,8 @@
 package plateaux;
+import java.util.Map;
 import java.util.Random;
+
+import Joueur.JoueurAgricole;
 import ressources.agricole.*;
 import tuiles.*;
 
@@ -151,10 +154,27 @@ public  class PlateauAgricole implements Plateau{
 		}
 		return res;
 	}
+	public boolean AllcontainsKey() {
+		boolean res=true;
+		JoueurAgricole joueur=new JoueurAgricole("test");
+		Map<RessourceAgricole, Integer> map = joueur.getRessources();
+		for (int i=0;i<this.hauteur;i++) {
+			for (int j=0; j<this.largeur;j++) {
+				if(this.getTuile(i, j).hasRessources()&& map.containsKey(this.getTuile(i, j).getRes())==false) {
+					res=false;
+				}
+			}
+		}
+		return res;
+	}
+	public boolean TcontainsKey(Tuile t) {
+		JoueurAgricole joueur=new JoueurAgricole("test");
+		Map<RessourceAgricole, Integer> map = joueur.getRessources();
+		return map.containsKey(t.getRes());
+	}
 
 }
-		
-	
+
 	
 	
 	
