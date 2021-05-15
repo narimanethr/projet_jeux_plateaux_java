@@ -39,15 +39,21 @@ public class Game {
 	public void executeActionAlea(JoueurGuerre j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 		Random r=new Random();
 		int a=r.nextInt(2);
-		
+
 		if(a==0) {
-			   DeployerGuerre d=new DeployerGuerre(this.plateau);
-			   int armSize=r.nextInt(5)+1;
-			   int y=r.nextInt(this.plateau.getHauteur());
-			   int x=r.nextInt(this.plateau.getLargeur());
-			  
-			   d.execute(j, y, x,new Armee(armSize));
-			   System.out.println(j.getName()+" a deployer ");
+			DeployerGuerre d=new DeployerGuerre(this.plateau);
+			int armSize=r.nextInt(5)+1;
+			int y=r.nextInt(this.plateau.getHauteur());
+			int x=r.nextInt(this.plateau.getLargeur());
+			while(!this.plateau.getTuile(y, x).isFree()) {
+				y=r.nextInt(this.plateau.getHauteur());
+				x=r.nextInt(this.plateau.getLargeur());
+			}
+			while(armSize >this.plateau.getTuile(y,x).getCapacite()) {
+				armSize=r.nextInt(5)+1;
+			}
+			d.execute(j, y, x,new Armee(armSize));
+			System.out.println(j.getName()+" a deployer ");
 		}
 		else {
 			NeRienFaire n=new NeRienFaire(this.plateau);
@@ -58,32 +64,28 @@ public class Game {
 	}
 	public void play() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 		int nbTours =0;
-		while( !this.plateau.AllTileNotFree() & nbTours <10) {
+		while( !this.plateau.AllTileNotFree() & nbTours <10 && !this.joueur1.StockEmpty()&& !this.joueur2.StockEmpty()) {
 			this.playOneRound(this.joueur1);
 			this.playOneRound(this.joueur2);
 			nbTours+=1;
 			System.out.println("nb tours: "+nbTours);
-			
+
 		}
 		System.out.println(this.gagnant(this.joueur2, this.joueur1));
-		
 	}
 	public String gagnant(JoueurGuerre j1,JoueurGuerre j2) {
 		String res="";
 		int i1=j1.getNbOr();
 		int i2=j2.getNbOr();
 		if(i1==i2) {
-			res="égalité entre "+j1.getName()+" et "+j2.getName();
+			res="Ã©galitÃ© entre "+j1.getName()+" et "+j2.getName();
 		}
 		else if(i1>i2) {
-			res="le joueur "+j1.getName()+" a gagné!";
+			res="le joueur "+j1.getName()+" a gagnÃ©!";
 		}
 		else {
-			res="le joueur "+j2.getName()+" a gagné!";
+			res="le joueur "+j2.getName()+" a gagnÃ©!";
 		}
-		
 		return res;
 	}
-
-
 }
