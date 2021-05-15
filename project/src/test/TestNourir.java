@@ -22,44 +22,30 @@ public class TestNourir {
 
 
 	@Test
-	public void TestExecute() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
+	public void TestExecute1() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 
-		PlateauGuerre pl = new PlateauGuerre(10,20);
-		JoueurGuerre p1 = new JoueurGuerre("player1");
-		Armee a = new Armee(2);
-		Nourir n = new Nourir(pl);
-		DeployerGuerre d = new DeployerGuerre(pl);
-		RecolterGuerre re = new RecolterGuerre(pl);
-		for(int y=0;y<pl.getHauteur();y++){
-			for (int x=0;x<pl.getLargeur();x++) {
-				int cout= n.coutArmee(pl.getTuile(y, x));
-				if(pl.getTuile(y, x).getProprietaire()==p1 &(pl.getTuile(y, x).getPeresonnage()!=null) ){
-					if(pl.getTuile(y, x).getProprietaire().getUnites()>=cout) {
-						int unitInit = pl.getTuile(y, x).getProprietaire().getUnites();
-						int nbOrInit =pl.getTuile(y, x).getProprietaire().getNbOr();
-						d.execute(p1, y, x, a);
-						re.execute(p1);
-						n.execute(p1);
-						int unitAfter = pl.getTuile(y, x).getProprietaire().getUnites();
-						int nbOrAfter =pl.getTuile(y, x).getProprietaire().getNbOr();
-						assertTrue(unitAfter<unitInit);
-						assertTrue(nbOrAfter >nbOrInit);
-
-					}else {
-						int unitInit = pl.getTuile(y, x).getProprietaire().getUnites();
-						n.execute(p1);
-						int unitAfter = pl.getTuile(y, x).getProprietaire().getUnites();
-						assertTrue(unitAfter>unitInit);
-						assertEquals(null, pl.getTuile(y, x).getProprietaire());
-						assertTrue(pl.getTuile(y, x).getPeresonnage()==null);
-					}
+		PlateauGuerre p3 = new PlateauGuerre(4,2);
+		JoueurGuerre j3 = new JoueurGuerre("player1");
+		Armee a3 = new Armee(1);
+		Nourir n = new Nourir(p3);
+		DeployerGuerre d = new DeployerGuerre(p3);
+		RecolterGuerre r = new RecolterGuerre(p3);
+		for(int y=0;y<p3.getHauteur();y++){
+			for (int x=0;x<p3.getLargeur();x++) {
+				if(p3.getTuile(y, x).isFree()&p3.getTuile(y, x).hasProprietaire()){
+					d.execute(j3, y, x, a3);
+					r.execute(j3);
+					int nbOrPersInit=p3.getTuile(y, x).getPeresonnage().getNbOr();
+					assertTrue(nbOrPersInit==0);
+					n.execute(j3);
+					int nbOrPersAfter=p3.getTuile(y, x).getPeresonnage().getNbOr();
+					assertTrue(nbOrPersAfter==nbOrPersInit+n.coutArmee(p3.getTuile(y, x)));
 				}
 			}
-
 		}
 	}
 
-	@Test
+	@Test // a refaire
 	public void TestCoutArmee() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 
 		PlateauGuerre p2 = new PlateauGuerre(10,20);

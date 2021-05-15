@@ -46,6 +46,24 @@ public class TestDeployerAgricole {
 			}
 		}
 	}
+	@Test( expected = NoteFreeTileException.class)
+	public void TestNoteFreeTileExceptionthrows2() throws NoteFreeTileException {
+		PlateauAgricole p3 = new PlateauAgricole(20,10);
+		JoueurAgricole j3 = new JoueurAgricole("player1");
+		Ouvrier o3= new Ouvrier(1);
+		DeployerAgricole a3 = new DeployerAgricole(p3);
+		for(int x=0;x<p3.getLargeur();x++){
+			for (int y=0;y<p3.getHauteur();y++) {
+				assertEquals(null,p3.getTuile(y, x).getProprietaire()); // précondition 
+				if(p3.getTuile(y, x).isFree() ) {
+					a3.execute(j3, y, x, o3);
+					
+				}
+				a3.execute(j3, y, x, o3); //deploiement sur une tuile dejai occupé 
+			}
+		}
+	}
+	
 		
 		
 		
