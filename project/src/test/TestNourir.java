@@ -1,8 +1,8 @@
 package test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import Joueur.JoueurAgricole;
 import Joueur.JoueurGuerre;
@@ -18,11 +18,11 @@ import plateaux.PlateauGuerre;
 import ressources.agricole.Sable;
 import tuiles.Desert;
 
-class TestNourir {
+public class TestNourir {
 
 
 	@Test
-	void TestExecute() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
+	public void TestExecute() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 
 		PlateauGuerre pl = new PlateauGuerre(10,20);
 		JoueurGuerre p1 = new JoueurGuerre("player1");
@@ -60,7 +60,7 @@ class TestNourir {
 	}
 
 	@Test
-	void TestCoutArmee() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
+	public void TestCoutArmee() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 
 		PlateauGuerre p2 = new PlateauGuerre(10,20);
 		 JoueurGuerre j2 = new JoueurGuerre("player1");
@@ -99,7 +99,9 @@ class TestNourir {
 			}
 		}
 		
+		
 	
 
 }
+	
 }

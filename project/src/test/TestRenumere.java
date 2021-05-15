@@ -1,8 +1,8 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import Joueur.JoueurAgricole;
 import actions.DeployerAgricole;
@@ -14,14 +14,14 @@ import exception.StockEmptyException;
 import personnages.Armee;
 import plateaux.PlateauAgricole;
 
-class TestRenumere {
+public class TestRenumere {
 	private PlateauAgricole p;
 	private JoueurAgricole j;
 	private Armee a;
 	
 
 	@Test
-	void TestExecute() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
+	public void TestExecute() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 		PlateauAgricole p = new PlateauAgricole(10,20);
 		JoueurAgricole j = new JoueurAgricole("j1");
 		Armee a = new Armee(2);
@@ -31,7 +31,7 @@ class TestRenumere {
 		for(int y=0;y<p.getHauteur();y++){
 			for (int x=0;x<p.getLargeur();x++) {
 				if (p.getTuile(y, x).getProprietaire()==j) {
-					if(p.getTuile(y, x).getProprietaire().getUnites()>=1) {
+				if(p.getTuile(y, x).getProprietaire().getUnites()>=1) {
 						int nbOrInit = p.getTuile(y, x).getProprietaire().getNbOr();
 						d.execute(j, y, x, a);
 						r.execute(j);

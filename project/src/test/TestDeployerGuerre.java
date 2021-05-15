@@ -1,8 +1,9 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import Joueur.JoueurAgricole;
 import Joueur.JoueurGuerre;
@@ -20,10 +21,10 @@ import tuiles.Montagne;
 import tuiles.Ocean;
 import tuiles.Tuile;
 
-class TestDeployerGuerre {
+public class TestDeployerGuerre {
 	
 	@Test
-	void TestExecute() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
+	public void TestExecute() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 		PlateauGuerre p = new PlateauGuerre(4,4);
 		JoueurGuerre j1 = new JoueurGuerre("player1");
 		DeployerGuerre d = new  DeployerGuerre(p);
@@ -45,12 +46,13 @@ class TestDeployerGuerre {
 		}
 	
 	@Test (expected = RangeOutOfCapacityTileException.class )
-	void TestRangeOutOfCapacityTileException() {
+	public void TestRangeOutOfCapacityTileException() {
+		
 		
 	}
 			
 	@Test
-	void TestConverTailleTuile() {
+	public void TestConverTailleTuile() {
 		PlateauGuerre p2 = new PlateauGuerre(1,1);
 		JoueurGuerre j2 = new JoueurGuerre("player1");
 		 DeployerGuerre d2 = new  DeployerGuerre(p2);

@@ -1,8 +1,9 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.*;
+
+import org.junit.Test;
 
 import Joueur.Joueur;
 import Joueur.JoueurAgricole;
@@ -24,7 +25,7 @@ import tuiles.Tuile;
 
 class TestNeRienFaireAgricole {
 	@Test
-	void TestExecute() {
+	public void TestExecute() {
 		JoueurAgricole j = new JoueurAgricole("p1");
 		PlateauAgricole  p = new PlateauAgricole(10, 20);
 		NeRienFaireAgricole a = new NeRienFaireAgricole(p);
@@ -36,7 +37,7 @@ class TestNeRienFaireAgricole {
 
 	}
 	@Test
-	void TestExecute2() throws NoteFreeTileException {
+	public void TestExecute2() throws NoteFreeTileException {
 		JoueurAgricole j = new JoueurAgricole("p1");
 		PlateauAgricole  p = new PlateauAgricole(10, 20);
 		NeRienFaireAgricole a = new NeRienFaireAgricole(p);
@@ -65,7 +66,7 @@ class TestNeRienFaireAgricole {
 	
 	
 	@Test
-	void  TestRecoisPieces() {
+	public void  TestRecoisPieces() {
 		JoueurAgricole j2 = new JoueurAgricole("p2");
 		PlateauAgricole  p2 = new PlateauAgricole(1, 1);
 		 NeRienFaireAgricole a = new NeRienFaireAgricole(p2);

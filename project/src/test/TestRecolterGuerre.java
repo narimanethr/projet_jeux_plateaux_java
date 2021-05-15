@@ -1,9 +1,7 @@
 package test;
+import static org.junit.Assert.*;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import Joueur.JoueurGuerre;
 import actions.DeployerGuerre;
@@ -15,13 +13,13 @@ import personnages.Armee;
 import plateaux.PlateauGuerre;
 import tuiles.Ocean;
 
-class TestRecolterGuerre {
+public class TestRecolterGuerre {
 
 
 	
 	
 	@Test
-	void TestExecute() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
+	public void TestExecute() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 		Armee a = new Armee(1);
 		JoueurGuerre j1  = new JoueurGuerre("p1");
 		 PlateauGuerre p1 = new PlateauGuerre(1,1);
@@ -45,7 +43,7 @@ class TestRecolterGuerre {
 }
 	
 	@Test
-	void TestExecute2() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
+	public void TestExecute2() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 		Armee a2 = new Armee(1);
 		JoueurGuerre j2  = new JoueurGuerre("p1");
 		 PlateauGuerre p2 = new PlateauGuerre(1,1);

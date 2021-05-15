@@ -1,11 +1,9 @@
 package test;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.junit.Assert.*;
 import java.util.Map;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import Joueur.JoueurAgricole;
 import actions.DeployerAgricole;
@@ -20,12 +18,12 @@ import ressources.agricole.Roches;
 import tuiles.Montagne;
 import tuiles.Ocean;
 
-class TestRecolterAgricole {
+public class TestRecolterAgricole {
 	
 
 
 	@Test
-	void TestExecute() throws NoteFreeTileException {
+	public void TestExecute() throws NoteFreeTileException {
 		Ouvrier o = new Ouvrier(1);
 		PlateauAgricole p = new PlateauAgricole(5,10);
 		 JoueurAgricole j1 = new  JoueurAgricole("j1");
