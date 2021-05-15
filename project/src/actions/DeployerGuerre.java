@@ -14,6 +14,7 @@ public class DeployerGuerre implements Action{
 		
 	}
 	public void execute(Joueur j,int y ,int x, Armee a)throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException{
+	
 		if( a.getTaille()<=this.plateau.getTuile(y,x).getCapacite()) {
 			if(this.plateau.getTuile(y,x).isFree()){
 				if(j.getNbPersonnage()>=a.getTaille()){
@@ -21,19 +22,23 @@ public class DeployerGuerre implements Action{
 					this.plateau.getTuile(y,x).setPersonnage(a); 
 					j.setNbPersonnage(j.getNbPersonnage()-a.getTaille());
 					affectAdj(j,y,x,a);
+					
 				}
 				else {
+			
 					throw new StockEmptyException("le stock d armee est insuffisant" );
 				}
 			}
 			else {
+				
 				throw new NoteFreeTileException("la tuile n'est pas vide ou de type Ocean");
 			}
 		}
 		else {
-			throw new RangeOutOfCapacityTileException("taille de l'armee est supperieur � la capacit� de la tuile ");
+			
+			throw new RangeOutOfCapacityTileException("taille de l'armee est supperieur a la capacite de la tuile ");
 		}
-
+		
 	}
 	private void affectAdj(Joueur j,int y ,int x,Armee a){ 
 		Tuile[] t=new Tuile[4];

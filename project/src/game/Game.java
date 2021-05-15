@@ -31,7 +31,7 @@ public class Game {
 			System.out.println(j.getName()+" a nouri ");
 		}
 		catch (Exception e){
-			
+			System.out.println(e);
 		}
 		
 	}
@@ -39,13 +39,15 @@ public class Game {
 	public void executeActionAlea(JoueurGuerre j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 		Random r=new Random();
 		int a=r.nextInt(2);
-		int y=r.nextInt(this.plateau.getHauteur());
-		int x=r.nextInt(this.plateau.getLargeur());
-		int armSize=r.nextInt(5)+1;
+		
 		if(a==0) {
-			DeployerGuerre d=new DeployerGuerre(this.plateau);
-			d.execute(j, y, x,new Armee(armSize));
-			System.out.println(j.getName()+" a deployer ");
+			   DeployerGuerre d=new DeployerGuerre(this.plateau);
+			   int armSize=r.nextInt(5)+1;
+			   int y=r.nextInt(this.plateau.getHauteur());
+			   int x=r.nextInt(this.plateau.getLargeur());
+			  
+			   d.execute(j, y, x,new Armee(armSize));
+			   System.out.println(j.getName()+" a deployer ");
 		}
 		else {
 			NeRienFaire n=new NeRienFaire(this.plateau);
@@ -60,6 +62,8 @@ public class Game {
 			this.playOneRound(this.joueur1);
 			this.playOneRound(this.joueur2);
 			nbTours+=1;
+			System.out.println("nb tours: "+nbTours);
+			
 		}
 		System.out.println(this.gagnant(this.joueur2, this.joueur1));
 		

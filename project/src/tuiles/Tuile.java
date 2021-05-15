@@ -84,6 +84,9 @@ public abstract class Tuile {
     public boolean hasProprietaire() {
     	return this.proprietaire!=null;
     }
+    public boolean hasRessources() {
+    	return this.res !=null;
+    	}
 
 	
 }
