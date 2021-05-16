@@ -27,6 +27,7 @@ public abstract class Tuile {
 	public Ressources getRes() {
 		return res;
 	}
+	
 
 	public String getName() {
 		return name;
@@ -81,7 +82,16 @@ public abstract class Tuile {
 	public void setPersonnage(Personnage p) {
 		this.peresonnage=p;
 	}
-    public boolean hasProprietaire() {
+    public int getBonus() {
+		return this.bonus;
+	}
+
+
+	public int[] getPosition() {
+		return position;
+	}
+
+	public boolean hasProprietaire() {
     	return this.proprietaire!=null;
     }
     public boolean hasRessources() {
