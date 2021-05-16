@@ -1,4 +1,3 @@
-package test;
 
 import static org.junit.Assert.*;
 
@@ -32,7 +31,7 @@ public class TestDeployerGuerre {
 			for (int x=0;x<p.getLargeur();x++) {
 				Tuile t = p.getTuile(y,x);
 				if(t.isFree() & j1.getNbPersonnage()>=a.getTaille()& a.getTaille()<=t.getCapacite()){
-					assertEquals(null,p.getTuile(y, x).getProprietaire()); // précondition 
+					assertEquals(null,p.getTuile(y, x).getProprietaire()); // prï¿½condition 
 					int nbrPersonneInit = j1.getNbPersonnage();
 					d.execute(j1, y, x, a);
 					int nbrPersonneAfter = j1.getNbPersonnage();
@@ -52,7 +51,7 @@ public class TestDeployerGuerre {
 		DeployerGuerre a1 = new DeployerGuerre(p1);
 		for(int x=0;x<p1.getLargeur();x++){
 			for (int y=0;y<p1.getHauteur();y++) {
-				assertEquals(null,p1.getTuile(y, x).getProprietaire()); // précondition 
+				assertEquals(null,p1.getTuile(y, x).getProprietaire()); // prï¿½condition 
 				if(p1.getTuile(y, x).isFree()) {
 		
 					Armee o2= new Armee(p1.getTuile(y, x).getCapacite());
@@ -70,7 +69,7 @@ public class TestDeployerGuerre {
 		DeployerGuerre a2 = new DeployerGuerre(p2);
 		for(int x=0;x<p2.getLargeur();x++){
 			for (int y=0;y<p2.getHauteur();y++) {
-				assertEquals(null,p2.getTuile(y, x).getProprietaire()); // précondition 
+				assertEquals(null,p2.getTuile(y, x).getProprietaire()); // prï¿½condition 
 				if(p2.getTuile(y, x).isFree()) {
 
 					Armee o2= new Armee(p2.getTuile(y, x).getCapacite()+1);
@@ -89,7 +88,7 @@ public class TestDeployerGuerre {
 		DeployerGuerre a3 = new DeployerGuerre(p3);
 		for(int x=0;x<p3.getLargeur();x++){
 			for (int y=0;y<p3.getHauteur();y++) {
-				assertEquals(null,p3.getTuile(y, x).getProprietaire()); // précondition 
+				assertEquals(null,p3.getTuile(y, x).getProprietaire()); // prï¿½condition 
 				if(p3.getTuile(y, x).isFree() ) {
 					int nbrPersonnageinit = j3.getNbPersonnage();
 					a3.execute(j3, y, x, o3);
@@ -97,7 +96,7 @@ public class TestDeployerGuerre {
 				     assertEquals(j3,p3.getTuile(y, x).getProprietaire()); 
 				     assertTrue(nbrPersonnageAfter<nbrPersonnageinit);		
 				}
-				a3.execute(j3, y, x, o3); //deploiement sur une tuile dejai occupé 
+				a3.execute(j3, y, x, o3); //deploiement sur une tuile dejai occupï¿½ 
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-package test;
+
 import static org.junit.Assert.*;
 import org.junit.Test;
 import Joueur.Joueur;
@@ -21,7 +21,7 @@ public class TestDeployerAgricole {
 		
 		for(int x=0;x<p.getLargeur();x++){
 			for (int y=0;y<p.getHauteur();y++) {
-				assertEquals(null,p.getTuile(y, x).getProprietaire()); // précondition 
+				assertEquals(null,p.getTuile(y, x).getProprietaire()); // prï¿½condition 
 				if(p.getTuile(y, x).isFree() ) {
 					int nbrPersonnageinit = j1.getNbPersonnage();
 					a.execute(j1, y, x, o);
@@ -54,12 +54,12 @@ public class TestDeployerAgricole {
 		DeployerAgricole a3 = new DeployerAgricole(p3);
 		for(int x=0;x<p3.getLargeur();x++){
 			for (int y=0;y<p3.getHauteur();y++) {
-				assertEquals(null,p3.getTuile(y, x).getProprietaire()); // précondition 
+				assertEquals(null,p3.getTuile(y, x).getProprietaire()); // prï¿½condition 
 				if(p3.getTuile(y, x).isFree() ) {
 					a3.execute(j3, y, x, o3);
 					
 				}
-				a3.execute(j3, y, x, o3); //deploiement sur une tuile dejai occupé 
+				a3.execute(j3, y, x, o3); //deploiement sur une tuile dejai occupï¿½ 
 			}
 		}
 	}
