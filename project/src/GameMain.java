@@ -17,8 +17,7 @@ public class GameMain {
 		System.out.println(j2.getNbOr());
 		Game game =new Game(p1,j1,j2);
 		game.play();
-		System.out.println(j1.getNbOr());
-		System.out.println(j2.getNbOr());
+		
 	}
 
 }
