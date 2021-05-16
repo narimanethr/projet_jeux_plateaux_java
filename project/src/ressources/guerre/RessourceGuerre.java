@@ -4,9 +4,15 @@ import ressources.Ressources;
 
 public abstract class RessourceGuerre implements Ressources{
 	protected int unite;
+	protected String name;
 	public RessourceGuerre() {
 		this.unite=0;
+		this.name ="";
 	}
+	public String getName() {
+		return this.name;
+	}
+	
 	/*return 's the unite
 	 * @return unite the  unite 
 	 * 

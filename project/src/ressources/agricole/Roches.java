@@ -7,6 +7,7 @@ public class Roches extends RessourceAgricole {
      */
 	public Roches() {
 		this.pieces=8;
+		this.name="roches";
 	}
 
 }

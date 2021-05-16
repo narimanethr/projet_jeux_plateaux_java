@@ -7,6 +7,7 @@ public class Bois extends RessourceAgricole {
      */
 	public Bois() {
 		this.pieces=2;
+		this.name="bois";
 	}
 
 }

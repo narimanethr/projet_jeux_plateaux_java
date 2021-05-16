@@ -24,17 +24,18 @@ public class PlateauMain {
 		p2.affiche();
 		System.out.println("nbre de tuiles de type Ocean: "+p2.getNBtuilOcean() + " \n");
 		//System.out.println(p2.AllcontainsKey());
-		/**for (int i=0;i<p2.getHauteur();i++) {
+		for (int i=0;i<p2.getHauteur();i++) {
 			for (int j=0; j<p2.getLargeur();j++) {
 				if(p2.getTuile(i, j).hasRessources()) {
 					System.out.println(p2.TcontainsKey(p2.getTuile(i, j)));
 				}
 			}
-		}*/
-		RessourceAgricole b=new Ble(); 
+		}
+		/**RessourceAgricole b=new Ble(); 
 		JoueurAgricole je=new JoueurAgricole("test");
-		Map<RessourceAgricole, Integer> m = je.getRessources();
-		System.out.println(m.containsKey(new Ble()));
+		Map<String, Integer> m = je.getRessources();
+		System.out.println(m.keySet());
+		System.out.println(m.containsKey(new Ble().getName()));*/
 	}
 
 }

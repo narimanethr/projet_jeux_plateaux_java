@@ -11,29 +11,29 @@ public abstract class Joueur {
 	protected int unites;
 	protected String name;
 	protected int nbPersonnage;
-	protected Map<RessourceAgricole,Integer> ressources;
+	protected Map<String,Integer> ressources;
 	public Joueur( String name) {
 		this.name=name;
 		this.nbPersonnage=0;
 		this.nbOr=15; 
 		this.unites=10; // pour guerre
 		this.ressources= new HashMap<>();
-		RessourceAgricole ble =new Ble();
-		RessourceAgricole bois =new Bois();
-		RessourceAgricole roches =new Roches();
-		RessourceAgricole sable =new Sable();
+		String ble =new Ble().getName();
+		String bois =new Bois().getName();
+		String  roches =new Roches().getName();
+		String sable =new Sable().getName();
 		this.ressources.put(ble, 0);
 		this.ressources.put(bois, 0);
 		this.ressources.put(roches, 0);
 		this.ressources.put(sable, 0);
 		
 	}
-	public void setRessources(Ressources k) {
+	public void setRessources(String k) {
 		 int v = this.ressources.get(k);
-		this.ressources.replace((RessourceAgricole) k, v+1);
+		this.ressources.replace(k, v+1);
 		
 	}
-	public Map<RessourceAgricole, Integer> getRessources() {
+	public Map<String, Integer> getRessources() {
 		return this.ressources;
 	}
 	/* return 's the name of player 

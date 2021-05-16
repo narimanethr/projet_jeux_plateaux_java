@@ -7,6 +7,7 @@ public class Ble extends RessourceAgricole {
      */
 	public Ble() {
 		this.pieces=2;
+		this.name="ble";
 	}
 
 }

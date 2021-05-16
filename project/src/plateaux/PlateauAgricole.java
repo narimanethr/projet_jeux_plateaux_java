@@ -157,7 +157,7 @@ public  class PlateauAgricole implements Plateau{
 	public boolean AllcontainsKey() {
 		boolean res=true;
 		JoueurAgricole joueur=new JoueurAgricole("test");
-		Map<RessourceAgricole, Integer> map = joueur.getRessources();
+		Map<String, Integer> map = joueur.getRessources();
 		for (int i=0;i<this.hauteur;i++) {
 			for (int j=0; j<this.largeur;j++) {
 				if(this.getTuile(i, j).hasRessources()&& map.containsKey(this.getTuile(i, j).getRes())==false) {
@@ -169,8 +169,8 @@ public  class PlateauAgricole implements Plateau{
 	}
 	public boolean TcontainsKey(Tuile t) {
 		JoueurAgricole joueur=new JoueurAgricole("test");
-		Map<RessourceAgricole, Integer> map = joueur.getRessources();
-		return map.containsKey(t.getRes());
+		Map<String, Integer> map = joueur.getRessources();
+		return map.containsKey(t.getRes().getName());
 	}
 
 }
