@@ -13,24 +13,20 @@ import plateaux.Plateau;
 import plateaux.PlateauAgricole;
 import plateaux.PlateauGuerre;
 
-public class GameAgricole  {
-	protected JoueurAgricole joueur1; 
-	protected JoueurAgricole joueur2;
-	protected PlateauAgricole plateau;
-	public GameAgricole(PlateauAgricole p,JoueurAgricole j1, JoueurAgricole j2) {
-		this.joueur1 = j1;
-		this.joueur2 = j2;
-		this.plateau=p;
+public class GameAgricole extends Game{
+	
+	public GameAgricole(Plateau p,Joueur j1, Joueur j2) {
+		super(p,j1,j2);
 	}
-	public void playOneRound(JoueurAgricole j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
+	public void playOneRound(Joueur j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 
 		try{
-			this.executeActionAlea(j);
+			this.executeActionAlea((JoueurAgricole) j);
 			RecolterAgricole R=new RecolterAgricole(this.plateau);
-			Remunere N=new Remunere(this.plateau);
-			R.execute(j);
+			Remunere N=new Remunere((PlateauAgricole) this.plateau);
+			R.execute((JoueurAgricole) j);
 			System.out.println(j.getName()+" a recolter ");
-			N.execute(j);
+			N.execute((JoueurAgricole) j);
 			System.out.println(j.getName()+" a remun ");
 		}
 		catch(Exception e) {
@@ -39,7 +35,7 @@ public class GameAgricole  {
 
 	}
 
-	public void executeActionAlea(JoueurAgricole j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
+	public void executeActionAlea(Joueur j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 		Random r=new Random();
 		int a=r.nextInt(3);
 		if(a==0) {
@@ -55,7 +51,7 @@ public class GameAgricole  {
 		}
 		else if(a==1) {
 			EchangeRessources E = new EchangeRessources((PlateauAgricole) this.plateau);
-			E.execute(j);
+			E.execute((JoueurAgricole) j);
 			System.out.println(j.getName()+" a echange ses ressources ");
 		}
 		else{
@@ -73,24 +69,13 @@ public class GameAgricole  {
 			nbTours+=1;
 			System.out.println("nb tours: "+nbTours);
 		}
-		System.out.println(this.joueur1.getName()+" a: "+this.comulPointsPers(this.joueur1)+" pieces d or");
-		System.out.println(this.joueur2.getName()+" a: "+this.comulPointsPers(this.joueur2)+" pieces d or");
-		System.out.println("le gagnant est: "+this.Gagnant(this.joueur1,this.joueur2).getName());
-	}
-	public int comulPointsPers(JoueurAgricole j) {
-		int res=0;
-		for(int x=0;x<this.plateau.getLargeur();x++){
-			for (int y=0;y<this.plateau.getHauteur();y++) {
-				if(this.plateau.getTuile(y, x).hasProprietaire()&this.plateau.getTuile(y, x).getProprietaire()==j) {
-					res+=this.plateau.getTuile(y, x).getPeresonnage().getNbOr();
-				}
-			}
-		}
-		return res;
+		System.out.println(this.joueur1.getName()+" a: "+this.comulPointsPers((JoueurAgricole) this.joueur1)+" pieces d or");
+		System.out.println(this.joueur2.getName()+" a: "+this.comulPointsPers((JoueurAgricole) this.joueur2)+" pieces d or");
+		System.out.println("le gagnant est: "+this.Gagnant((JoueurAgricole)this.joueur1,(JoueurAgricole)this.joueur2).getName());
 	}
 	
-	public JoueurAgricole Gagnant(JoueurAgricole j1,JoueurAgricole j2) {
-		JoueurAgricole g;
+	public Joueur Gagnant(Joueur j1,Joueur j2) {
+		Joueur g;
 		int c1=this.comulPointsPers(j1);
 		int c2=this.comulPointsPers(j2);
 		if(c1>c2) {

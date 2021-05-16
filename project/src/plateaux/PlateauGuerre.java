@@ -2,10 +2,11 @@ package plateaux;
 
 import java.util.Random;
 import ressources.guerre.*;
+import Joueur.JoueurGuerre;
 import tuiles.*;
 
 
-public class PlateauGuerre extends PlateauAgricole{
+public class PlateauGuerre extends Plateau{
 
 	public PlateauGuerre(int l, int h) {
 		super(l, h);
@@ -28,6 +29,17 @@ public class PlateauGuerre extends PlateauAgricole{
 		 }
 		
 		return null;
+	}
+	public boolean AllTileNotFree() {
+		boolean res =true;
+		for (int i=0;i<this.hauteur;i++) {
+			for (int j=0; j<this.largeur;j++) {
+				if(this.getTuile(i, j).isFree()){
+					res=false;
+				}
+			}
+		}
+		return res;
 	}
 
 }

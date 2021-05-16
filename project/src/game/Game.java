@@ -12,23 +12,23 @@ import plateaux.Plateau;
 import plateaux.PlateauAgricole;
 import plateaux.PlateauGuerre;
 
-public class Game {
-	protected JoueurGuerre joueur1; 
-	protected JoueurGuerre joueur2;
-	protected PlateauGuerre plateau;
-	public Game(PlateauGuerre p,JoueurGuerre j1, JoueurGuerre j2) {
+public abstract class Game {
+	protected Joueur joueur1; 
+	protected Joueur joueur2;
+	protected Plateau plateau;
+	public Game(Plateau p,Joueur j1, Joueur j2) {
 		this.joueur1 = j1;
 		this.joueur2 = j2;
 		this.plateau=p;
 	}
-	public void playOneRound(JoueurGuerre j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
+	public void playOneRound(Joueur j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 		try {
-			this.executeActionAlea(j);
+			this.executeActionAlea((JoueurGuerre) j);
 			RecolterGuerre R=new RecolterGuerre(this.plateau);
-			Nourir N=new Nourir(this.plateau);
-			R.execute(j);
+			Nourir N=new Nourir((PlateauGuerre) this.plateau);
+			R.execute((JoueurGuerre) j);
 			System.out.println(j.getName()+" a recolter ");
-			N.execute(j);
+			N.execute((JoueurGuerre) j);
 			System.out.println(j.getName()+" a nouri ");
 		}
 		catch (Exception e){
@@ -37,7 +37,7 @@ public class Game {
 		
 	}
 
-	public void executeActionAlea(JoueurGuerre j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
+	public void executeActionAlea(Joueur j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 		Random r=new Random();
 		int a=r.nextInt(2);
 
@@ -76,7 +76,7 @@ public class Game {
 		System.out.println(this.joueur2.getName()+" a: "+this.pointsTotal(this.joueur2)+" pieces d or");
 		System.out.println("le gagnant est: "+this.Gagnant(this.joueur1,this.joueur2).getName());
 	}
-	public int comulPointsPers(JoueurGuerre j) {
+	public int comulPointsPers(Joueur j) {
 		int res=0;
 		for(int x=0;x<this.plateau.getLargeur();x++){
 			for (int y=0;y<this.plateau.getHauteur();y++) {
@@ -87,14 +87,14 @@ public class Game {
 		}
 		return res;
 	}
-	public int pointsTotal(JoueurGuerre j) {
+	public int pointsTotal(Joueur j) {
 		int res=this.comulPointsPers(j)+this.cumulBonus(j)+j.getNbOr();
 		return res;
 		
 	}
 	
-	public Joueur Gagnant(JoueurGuerre j1,JoueurGuerre j2) {
-		JoueurGuerre g;
+	public Joueur Gagnant(Joueur j1,Joueur j2) {
+		Joueur g;
 		int c1=this.comulPointsPers(j1)+this.cumulBonus(j1)+j1.getNbOr();
 		int c2=this.comulPointsPers(j2)+this.cumulBonus(j2)+j2.getNbOr();
 		if(c1>c2) {
@@ -105,7 +105,7 @@ public class Game {
 		}
 		return g;
 	}
-	public int cumulBonus(JoueurGuerre j) {
+	public int cumulBonus(Joueur j) {
 		int res =0;
 		int nbTerritoires =0; 
 		for(int x=0;x<this.plateau.getLargeur();x++){

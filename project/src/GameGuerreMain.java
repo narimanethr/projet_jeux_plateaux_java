@@ -2,11 +2,10 @@ import Joueur.JoueurGuerre;
 import exception.NoteFreeTileException;
 import exception.RangeOutOfCapacityTileException;
 import exception.StockEmptyException;
-import game.Game;
-
+import game.GameGuerre;
 import plateaux.PlateauGuerre;
 
-public class GameMain {
+public class GameGuerreMain {
 
 	public static void main(String[] args) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 	
@@ -15,7 +14,7 @@ public class GameMain {
 		JoueurGuerre j2=new JoueurGuerre("j2");
 		System.out.println(j1.getNbOr());
 		System.out.println(j2.getNbOr());
-		Game game =new Game(p1,j1,j2);
+		GameGuerre game =new GameGuerre(p1,j1,j2);
 		game.play();
 		
 	}
