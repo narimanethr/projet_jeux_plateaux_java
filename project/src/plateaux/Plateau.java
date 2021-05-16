@@ -11,5 +11,6 @@ public interface Plateau {
 	public int getLargeur();
 
 	public String toString();
+	public boolean AllTileNotFree();
 
 }
