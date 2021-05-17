@@ -37,10 +37,14 @@ public abstract class Tuile {
 	public Ressources getRes() {
 		return res;
 	}
+<<<<<<< HEAD
 	/*return's the name of the tile 
 	 * @return name ,the  name of the tile
 	 * 
 	 */
+=======
+	
+>>>>>>> 34ae569bb11a9351643ba9dd8bb9fe613df7cc0f
 
 	public String getName() {
 		return name;
@@ -107,11 +111,24 @@ public abstract class Tuile {
 	public void setPersonnage(Personnage p) {
 		this.peresonnage=p;
 	}
+<<<<<<< HEAD
 	/*Check's if the tile has an owner , false if there  is not an owner or true instead 
 	 * @return True if there is an owner or false instead 
 	 * 
 	 */
     public boolean hasProprietaire() {
+=======
+    public int getBonus() {
+		return this.bonus;
+	}
+
+
+	public int[] getPosition() {
+		return position;
+	}
+
+	public boolean hasProprietaire() {
+>>>>>>> 34ae569bb11a9351643ba9dd8bb9fe613df7cc0f
     	return this.proprietaire!=null;
     }
     /*Check's if the tile has  ressources  , false if there  is no ressources  or true instead 

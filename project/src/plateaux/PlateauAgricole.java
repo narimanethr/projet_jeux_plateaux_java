@@ -6,7 +6,7 @@ import Joueur.JoueurAgricole;
 import ressources.agricole.*;
 import tuiles.*;
 
-public  class PlateauAgricole implements Plateau{
+public  class PlateauAgricole extends Plateau{
 	protected int largeur;
 	protected	int hauteur;
 	protected Tuile [][] plateau;
@@ -15,15 +15,10 @@ public  class PlateauAgricole implements Plateau{
      * @param l the width
      * @param h the height 
      */
-	public PlateauAgricole(int l, int h){                
-		this.largeur=l;
-		this.hauteur=h;
-		plateau = new Tuile[this.hauteur][this.largeur];
-		for (int i=0;i<this.hauteur;i++) {
-			for (int j=0; j<this.largeur;j++) {
-				plateau[i][j]=new Ocean(null,1,j,i);
-			}
+	public PlateauAgricole(int l, int h){   
+		super(l,h);
 		}
+<<<<<<< HEAD
 		Random r = new Random();
 		int y= r.nextInt(this.hauteur);
 		int x= r.nextInt(this.largeur);
@@ -180,17 +175,10 @@ public  class PlateauAgricole implements Plateau{
 		return map.containsKey(t.getRes().getName());
 	}
 
+=======
+>>>>>>> 34ae569bb11a9351643ba9dd8bb9fe613df7cc0f
 }
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	

@@ -17,7 +17,7 @@ public class NeRienFaireAgricole extends NeRienFaire implements Action {
 	public void execute(Joueur j) {
 		for(int x=0;x<this.plateau.getLargeur();x++){
 			for (int y=0;y<this.plateau.getHauteur();y++) {
-				if(this.plateau.getTuile(y, x).getProprietaire()==j) {
+				if(this.plateau.getTuile(y, x).hasProprietaire()&this.plateau.getTuile(y, x).getProprietaire()==j) {
 					RecoisPieces(j, this.plateau.getTuile(y, x));
 				}
 			}
