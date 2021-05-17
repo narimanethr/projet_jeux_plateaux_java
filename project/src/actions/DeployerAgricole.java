@@ -10,6 +10,10 @@ import tuiles.*;
 
 
 public class DeployerAgricole extends DeployerGuerre implements Action{
+	/* create a new  action   DeployerAgricole with p the gameBoard
+	 * @param p Plateau
+	 * 
+	 */
 	public DeployerAgricole(Plateau p) {
 		super(p);
 	}

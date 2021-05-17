@@ -15,11 +15,22 @@ public class Game {
 	protected JoueurGuerre joueur1; 
 	protected JoueurGuerre joueur2;
 	protected PlateauGuerre plateau;
+	/*Create's a new Game with PlateauGuerre p , GameBoard a first player JoueurGuerre j1, and second JoueurGuerre j2
+	 * @param p PlateauGuerre, the gameBoard
+	 * @param j1 JoueurGuerre, the first player 
+	 * @param j2 JoueurGuerre, the second player 
+	 * 
+	 */
 	public Game(PlateauGuerre p,JoueurGuerre j1, JoueurGuerre j2) {
 		this.joueur1 = j1;
 		this.joueur2 = j2;
 		this.plateau=p;
 	}
+	/*Play's one round 
+	 * @param j JoueurGuerre , the player that playes the round 
+	 * 
+	 */
+
 	public void playOneRound(JoueurGuerre j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 		try {
 			this.executeActionAlea(j);

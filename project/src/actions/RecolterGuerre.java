@@ -6,6 +6,10 @@ import tuiles.Ocean;
 
 public class RecolterGuerre implements Action{
 	protected Plateau plateau;
+	/* create a new  RecolterGuerre action  with p the gameBoard
+	 * @param p the gameBoard
+	 * 
+	 */
 	
 	public RecolterGuerre(Plateau p) {
 		this.plateau=p;

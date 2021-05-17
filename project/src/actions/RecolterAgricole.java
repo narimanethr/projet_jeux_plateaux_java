@@ -4,6 +4,9 @@ import Joueur.JoueurAgricole;
 import plateaux.*;
 
 public class RecolterAgricole extends RecolterGuerre implements Action {
+	/* create a new RecolterAgricole action  with p the gameBoard
+	 * 
+	 */
 
 	public RecolterAgricole(Plateau p) {
 		super(p);

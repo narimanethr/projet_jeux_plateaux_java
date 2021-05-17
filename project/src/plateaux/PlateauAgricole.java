@@ -71,6 +71,13 @@ public  class PlateauAgricole implements Plateau{
 	public String toString() {
 		return "ce plateau est de taille "+this.getNbTuiles();
 	}
+	/*return 's a random tile 
+	 *  @param y vertical coorinate 
+	 * @param x horizonal coordinate 
+	 * @return Tuile a tile  
+	 *
+	 * 
+	 */
 	public Tuile getTuileAleatoire(int y,int x){
 		Random r = new Random();
 		int t=r.nextInt(4);

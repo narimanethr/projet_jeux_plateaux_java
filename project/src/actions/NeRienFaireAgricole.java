@@ -5,6 +5,10 @@ import plateaux.Plateau;
 import tuiles.Tuile;
 
 public class NeRienFaireAgricole extends NeRienFaire implements Action {
+	/* create a new NeRienFaireAgricole action  with p the gameBoard
+	 * @param p Plateau , the gameBoard
+	 * 
+	 */
 
 	public NeRienFaireAgricole(Plateau p) {
 		super(p);
@@ -20,6 +24,11 @@ public class NeRienFaireAgricole extends NeRienFaire implements Action {
 		}
 			
 		} 
+	/* add's nbOr to the player j , according to the type of tile t
+	 * @param j Joueur , the player that receive nbor
+	 * @param t Tuile , the tile 
+	 * 
+	 */
 	public void RecoisPieces(Joueur j, Tuile t) {
 		if (t.getName()=="foret" ||t.getName()=="plaine") {
 			j.addNbOr(1);

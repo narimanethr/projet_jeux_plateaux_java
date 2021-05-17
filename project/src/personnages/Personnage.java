@@ -3,6 +3,10 @@ package personnages;
 public abstract class Personnage {
 	protected int nbOr;
 	protected int taille;
+	/*Create's a new Personnage with a size t 
+	 * @param t the size of Personnage 
+	 * 
+	 */
 	
 	public Personnage(int t) {
 		this.taille=t;

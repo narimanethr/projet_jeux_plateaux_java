@@ -6,7 +6,7 @@ import tuiles.*;
 
 public class Nourir implements Action {
 	protected PlateauGuerre plateau;
-	/* create a new Nourir with p the gameBoard
+	/* create a new Nourir action  with p the gameBoard
 	 * 
 	 */
 	public Nourir(PlateauGuerre p) {
@@ -33,6 +33,10 @@ public class Nourir implements Action {
 		}
 		
 	}
+	/* changes the size of personnages according to the tile t 
+	 * @param t Tuile , the tile of personnages 
+	 * 
+	 */
 	public int coutArmee(Tuile t) {
 		int res=0;
 		if(t.getPeresonnage()!=null) {

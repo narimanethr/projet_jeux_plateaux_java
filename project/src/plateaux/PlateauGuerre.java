@@ -6,6 +6,11 @@ import tuiles.*;
 
 
 public class PlateauGuerre extends PlateauAgricole{
+	/* set's  PlateauGuerre
+	 * @param l , the width
+	 * @param h ,the width
+	 * 
+	 */
 
 	public PlateauGuerre(int l, int h) {
 		super(l, h);
