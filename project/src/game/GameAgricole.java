@@ -12,9 +12,10 @@ import actions.*;
 import plateaux.Plateau;
 import plateaux.PlateauAgricole;
 import plateaux.PlateauGuerre;
-<<<<<<< HEAD
+
+
 /*GameAgricole class  */
-public class GameAgricole {
+public class GameAgricole extends Game    {
 	protected JoueurAgricole joueur1; // player 1
 	protected JoueurAgricole joueur2;// player 2
 	protected PlateauAgricole plateau;
@@ -24,11 +25,16 @@ public class GameAgricole {
 	 * @param j2 JoueurAgricole
 	 * 
 	 */
-	public GameAgricole(PlateauAgricole p,JoueurAgricole j1, JoueurAgricole j2) {
-		this.joueur1 = j1;
-		this.joueur2 = j2;
-		this.plateau=p;
+	public GameAgricole(PlateauGuerre p, JoueurGuerre j1, JoueurGuerre j2, JoueurAgricole joueur1,
+			JoueurAgricole joueur2, PlateauAgricole plateau) {
+		super(p, j1, j2);
+		this.joueur1 = joueur1;
+		this.joueur2 = joueur2;
+		this.plateau = plateau;
 	}
+	
+
+	
 	/* play's one round 
 	 * @param j JoueurAgricole
 	 * 
@@ -42,13 +48,14 @@ public class GameAgricole {
 		System.out.println(j.getName()+" a recolter ");
 		N.execute(j);
 		System.out.println(j.getName()+" a remun ");
-=======
-
-public class GameAgricole extends Game{
-	
-	public GameAgricole(Plateau p,Joueur j1, Joueur j2) {
-		super(p,j1,j2);
 	}
+
+
+
+	
+	
+
+
 	public void playOneRound(Joueur j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 
 		try{
@@ -64,7 +71,7 @@ public class GameAgricole extends Game{
 			System.out.println(e);
 		}
 
->>>>>>> 34ae569bb11a9351643ba9dd8bb9fe613df7cc0f
+
 	}
 	/*Execut's a random action 
 	 * @param j JoueurAgricole
@@ -109,6 +116,12 @@ public class GameAgricole extends Game{
 		System.out.println(this.joueur2.getName()+" a: "+this.comulPointsPers((JoueurAgricole) this.joueur2)+" pieces d or");
 		System.out.println("le gagnant est: "+this.Gagnant((JoueurAgricole)this.joueur1,(JoueurAgricole)this.joueur2).getName());
 	}
+	/* return's the winner of the game 
+	 * @param j1 , player 1
+	 * @param j2 , player 2
+	 * @return g, the winner 
+	 * 
+	 */
 	
 	public Joueur Gagnant(Joueur j1,Joueur j2) {
 		Joueur g;
