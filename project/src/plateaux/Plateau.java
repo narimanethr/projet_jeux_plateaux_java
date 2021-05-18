@@ -9,12 +9,12 @@ import tuiles.*;
 public abstract class Plateau{
 	protected int largeur;
 	protected	int hauteur;
-	protected Tuile [][] plateau;
-	 /**
-     * create a new PlateauAgricole with the given width l, and h as height
-     * @param l the width
-     * @param h the height 
-     */
+	protected Tuile [][] plateau;	 
+	/**
+	 * create a new tile with the given width l, and h as height
+	 * @param l the width
+	 * @param h the height
+	 */
 	public Plateau(int l, int h){                
 		this.largeur=l;
 		this.hauteur=h;
@@ -37,32 +37,32 @@ public abstract class Plateau{
 			}
 		}
 	}
-	/* return's the number of tiles 
-	 * @return  hauteur*this.largeur
-	 * 
+	/**
+	 * return the number of tiles
+	 * @return hauteur*this.largeur
 	 */
 	public int getNbTuiles() {
 		return this.hauteur*this.largeur;
 	}
-	/*return's a tile in the Board Game with given coordinates 
-	 * @param y  horizontal position
-	 * @param x vertical position  
+	/**
+	 * return a tile in the Board Game with given coordinates
+	 * @param y horizontal position
+	 * @param x vertical position
 	 * @return plateau[y][x]
 	 */
-	
 	public Tuile getTuile(int y,int x) {
 		return this.plateau[y][x];
 	}
-	/*return 's the height 
-	 * @return hauteur the height 
-	 * 
+	/**
+	 * return the height
+	 * @return  hauteur 
 	 */
 	public int getHauteur() {
 		return this.hauteur;
 	}
-	/*return 's the width 
-	 * @return largeur  the width
-	 * 
+	/**
+	 * return the width
+	 * @return largeur
 	 */
 	public int getLargeur() {
 		return this.largeur;
@@ -84,16 +84,13 @@ public abstract class Plateau{
 		
 		return null;
 	}
-	/* check's if the current tile has not a tile of ocean type 
-	 * @param i a position 
-	 * @param j a position 
-	 * @return true if it has a tile of ocean type , or false instead 
-	 * 
-	 */
-	
-	
 
-	
+	/**
+	 * check if the current tile has not a tile of ocean type
+	 * @param i a position
+	 * @param j a position
+	 * @return true if it has a tile of ocean type , or false instead
+	 */
 	public boolean hasAjNotOcean(int i, int j) {
 		boolean res=false;
 		if (j<this.getLargeur()-1 && !((plateau[i][j+1])instanceof Ocean )) {
@@ -114,7 +111,8 @@ public abstract class Plateau{
 		return res;
 	
 	}
-	/* return's the number of tiles of type Ocean
+	/**
+	 * return the number of tiles of type Ocean
 	 * @return res the number of tiles of type Ocean
 	 */
 	public int getNBtuilOcean() {

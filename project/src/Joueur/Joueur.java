@@ -16,7 +16,7 @@ public abstract class Joueur {
 		this.name=name;
 		this.nbPersonnage=0;
 		this.nbOr=15; 
-		this.unites=10; // pour guerre
+		this.unites=10; // pour guerre 
 		this.ressources= new HashMap<>();
 		String ble =new Ble().getName();
 		String bois =new Bois().getName();
@@ -36,32 +36,37 @@ public abstract class Joueur {
 	public Map<String, Integer> getRessources() {
 		return this.ressources;
 	}
-	/* return 's the name of player 
-	 * @return name 
+	/**
+	 * return the name of player
+	 * @return name
 	 */
 	public String getName() {
 		return name;
 	}
-	/* set  's the name of player 
-	 * @param  name 
+	/**
+	 * set the name of player
+	 * @param name
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-	/* return 's the number  of characters  
-	 * @return nbPersonnage 
+	/**
+	 * return the number  of characters 
+	 * @return nbPersonnage
 	 */
 	
 	public int getNbPersonnage() {
 		return nbPersonnage;
 	}
-	/* set 's the number  of characters  
-	 * @param  nbPersonnage 
+	/**
+	 * set the number  of characters
+	 * @param nbPersonnage
 	 */
 	public void setNbPersonnage(int nbPersonnage) {
 		this.nbPersonnage = nbPersonnage;
 	}
-	/* return 's the number  of gold  
+	/**
+	 * return the number  of gold
 	 * @return nbOr
 	 */
 	public int getNbOr() {
@@ -74,26 +79,30 @@ public abstract class Joueur {
 	public void subNbOr(int n) {
 		this.nbOr -= n;
 	}
-	/* set's the number  of gold  
+	/**
+	 * set the number  of gold
 	 * @param nbOr
 	 */
 	public void setNbOr(int nbOr) {
 		this.nbOr = nbOr;
 	}
-	/* return 's the unites  
+	/**
+	 * return the unites
 	 * @return unites 
 	 */
 	public int getUnites() {
 		return unites;
 	}
-	/* Add 's the unites  
-	 * @param n the number of unites 
+	/**
+	 * Add the unites
+	 * @param n the number of unites
 	 */
 	public void addUnites(int n) {
 		this.unites +=n;
 	}
-	/* Subsract's the unites  
-	 * @param n the number of unites to subtract 
+	/**
+	 * Subsract the unites
+	 * @param n the number of unites to subtract
 	 */
 	public void subUnites(int n) {
 		this.unites -=n;

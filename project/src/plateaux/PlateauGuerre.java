@@ -14,10 +14,11 @@ public class PlateauGuerre extends Plateau{
 		super(l, h);
 		
 	}
-	/* return's a random tile 
-	 * @param y a position 
-	 * @param x a position 
-	 * @return  Tuile a tile 
+	/**
+	 * return a random tile
+	 * @param y a position
+	 * @param x a position
+	 * @return  Tuile 
 	 */
 	public Tuile getTuileAleatoire(int y,int x){
 		Random r = new Random();
