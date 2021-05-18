@@ -10,35 +10,35 @@ public abstract class Personnage {
 		
 	}
 	/**
-	 * return NbOr
+	 * return Number of gold's personnage
 	 * @return nbOr
 	 */
 	public  int getNbOr() {
 		return this.nbOr;
 	}
 	/**
-	 * Add NbOr
+	 * Add Number of gold n to personnage
 	 * @param n nbOr
 	 */
 	public void addNbOr(int n ) {
 		this.nbOr+=n;
 	}	
 	/**
-	 * return  taille
+	 * return  size of personnage
 	 * @return taille
 	 */
 	public int getTaille() {
 		return this.taille;
 	}
 	/**
-	 * Add taille
+	 * Add size t to the personnage 
 	 * @param t a size
 	 */
 	public void addTaille(int t) {
 		this.taille = taille+t;
 	}
 	/**
-	 * substracts taille
+	 * substract size t from personnage's size 
 	 * @param t a size
 	 */
 	public void subTaille(int t) {

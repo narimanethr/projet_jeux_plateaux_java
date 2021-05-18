@@ -11,7 +11,7 @@ public  class PlateauAgricole extends Plateau{
 	protected	int hauteur;
 	protected Tuile [][] plateau;
 	/**
-	 * create a new PlateauAgricole with the given width l, and h as height
+	 * create a new tileAgricole with the given of width l, and h as height
 	 * @param l the width
 	 * @param h the height
 	 */

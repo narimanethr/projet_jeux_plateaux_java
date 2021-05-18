@@ -24,23 +24,38 @@ public abstract class Tuile {
 		this.peresonnage=null;
 	}
 	
+	/**
+	 * return ressource of tile
+	 * @return res 
+	 */
 	public Ressources getRes() {
 		return res;
 	}
-
-
-
-
+/**
+ * return the name of the tile
+ * @return name 
+ */
 	public String getName() {
 		return name;
 	}
-
+/**
+ * set the name of tile
+ * @param name the name to replace 
+ */
 	public void setName(String name) {
 		this.name = name;
 	}
+	/**
+	 * return the owner of the tile
+	 * @return proprietaire the owner  
+	 */
 	public Joueur getProprietaire() {
 		return this.proprietaire;
 	}
+	/**
+	 * set the owner of the tile by j player 
+	 * @param j player to replace 
+	 */
 	public void setProprietaire(Joueur j) {
 		this.proprietaire=j;
 	}
@@ -82,20 +97,33 @@ public abstract class Tuile {
 	public void setPersonnage(Personnage p) {
 		this.peresonnage=p;
 	}
-
+/**
+ * return the number of bonus to each tile
+ * @return bonus 
+ */
     public int getBonus() {
 		return this.bonus;
 	}
 
-
+/**
+ * return the position of tile
+ * @return position 
+ */
 	public int[] getPosition() {
 		return position;
 	}
-
+/**
+ * check if the tile has an owner 
+ * @return true or false 
+ */
 	public boolean hasProprietaire() {
 
     	return this.proprietaire!=null;
     }
+	/**
+	 * check if the tile has a ressources 
+	 * @return true or false 
+	 */
     public boolean hasRessources() {
     	return this.res !=null;
     	}

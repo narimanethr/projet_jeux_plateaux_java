@@ -45,7 +45,7 @@ public abstract class Plateau{
 		return this.hauteur*this.largeur;
 	}
 	/**
-	 * return a tile in the Board Game with given coordinates
+	 * return a tile in the game Board with given coordinates
 	 * @param y horizontal position
 	 * @param x vertical position
 	 * @return plateau[y][x]
@@ -54,14 +54,14 @@ public abstract class Plateau{
 		return this.plateau[y][x];
 	}
 	/**
-	 * return the height
+	 * return the height of game Board 
 	 * @return  hauteur 
 	 */
 	public int getHauteur() {
 		return this.hauteur;
 	}
 	/**
-	 * return the width
+	 * return the width of game board 
 	 * @return largeur
 	 */
 	public int getLargeur() {
@@ -86,10 +86,10 @@ public abstract class Plateau{
 	}
 
 	/**
-	 * check if the current tile has not a tile of ocean type
+	 * check if the current tile has not a ajacent tile of ocean type
 	 * @param i a position
 	 * @param j a position
-	 * @return true if it has a tile of ocean type , or false instead
+	 * @return true if it has a ajencent tile of ocean type , or false instead
 	 */
 	public boolean hasAjNotOcean(int i, int j) {
 		boolean res=false;
@@ -141,6 +141,10 @@ public abstract class Plateau{
 		}
 		              		
 	}
+	/**
+	 * check if all tile are not free
+	 * @return true or false
+	 */
 	public boolean AllTileNotFree() {
 		boolean res =true;
 		for (int i=0;i<this.hauteur;i++) {

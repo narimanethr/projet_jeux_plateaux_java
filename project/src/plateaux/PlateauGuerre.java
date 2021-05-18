@@ -33,6 +33,10 @@ public class PlateauGuerre extends Plateau{
 		
 		return null;
 	}
+	/**
+	 * check if all tile are not free
+	 * @return true or false 
+	 */
 	public boolean AllTileNotFree() {
 		boolean res =true;
 		for (int i=0;i<this.hauteur;i++) {

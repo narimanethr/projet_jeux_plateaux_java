@@ -9,6 +9,10 @@ public abstract class RessourceGuerre implements Ressources{
 		this.unite=0;
 		this.name ="";
 	}
+	/**
+	 * return the name of ressources
+	 * @return name 
+	 */
 	public String getName() {
 		return this.name;
 	}
