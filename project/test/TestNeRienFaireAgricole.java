@@ -23,7 +23,7 @@ import tuiles.Ocean;
 import tuiles.Plaine;
 import tuiles.Tuile;
 
-class TestNeRienFaireAgricole {
+public class TestNeRienFaireAgricole {
 	@Test
 	public void TestExecute() {
 		JoueurAgricole j = new JoueurAgricole("p1");

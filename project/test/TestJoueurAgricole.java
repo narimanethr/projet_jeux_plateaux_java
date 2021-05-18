@@ -9,7 +9,8 @@ import Joueur.Joueur;
 import Joueur.JoueurAgricole;
 import ressources.agricole.RessourceAgricole;
 
-class TestJoueurAgricole {
+
+public class TestJoueurAgricole {
 	private JoueurAgricole p1;
 	private Map<RessourceAgricole, Integer> mp = new HashMap<>();
 	
@@ -18,16 +19,12 @@ class TestJoueurAgricole {
 		   this.p1 = new JoueurAgricole("p1");
 	      assertEquals("p1", p1.getName());
 	   }
-	   @Test
-	   public void TestSetRessources() {
-		      
-		  
-	   }
+	 
 	   @Test
 	   public void TestGetRessources() {
 		   this.p1 = new JoueurAgricole("p1");
 		  
-		   
+	
 		  
 	   }
 	   @Test
