@@ -72,10 +72,17 @@ public abstract class Joueur {
 	public int getNbOr() {
 		return nbOr;
 	}
-
+    /**
+     * add number n of gold to the player  
+     * @param n number of gold
+     */
 	public void addNbOr(int n) {
 		this.nbOr += n;
 	}
+	/**
+	 * substract number n of gold from the player 
+	 * @param n number of gold
+	 */
 	public void subNbOr(int n) {
 		this.nbOr -= n;
 	}
@@ -107,6 +114,10 @@ public abstract class Joueur {
 	public void subUnites(int n) {
 		this.unites -=n;
 	}
+	/**
+	 * check if the stock of personnage is empty 
+	 * @return true or false 
+	 */
 	public boolean StockEmpty() {
 		return this.nbPersonnage==0;
 	}

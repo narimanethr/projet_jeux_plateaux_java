@@ -18,10 +18,10 @@ public abstract class Game {
 	protected Joueur joueur2;
 	protected Plateau plateau;
 	/**
-	 * Create's a new Game with PlateauGuerre p , GameBoard a first player JoueurGuerre j1, and second JoueurGuerre j2
-	 * @param p PlateauGuerre, the gameBoard
-	 * @param j1 JoueurGuerre, the first player 
-	 * @param j2 JoueurGuerre, the second player
+	 * Create a new Game with Plateau p , a first player Joueur j1, and second Joueur j2
+	 * @param p Plateau
+	 * @param j1 Joueur 
+	 * @param j2 Joueur
 	 */
 	public Game(Plateau p,Joueur j1, Joueur j2) {
 
@@ -31,7 +31,7 @@ public abstract class Game {
 	}
 /**
  * Play one round
- * @param j JoueurGuerre , the player that playes the round
+ * @param j Joueur , the player that playes the round
  * @throws RangeOutOfCapacityTileException
  * @throws NoteFreeTileException
  * @throws StockEmptyException
