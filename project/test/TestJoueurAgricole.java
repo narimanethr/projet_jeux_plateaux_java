@@ -10,7 +10,7 @@ import Joueur.JoueurAgricole;
 import ressources.agricole.RessourceAgricole;
 
 class TestJoueurAgricole {
-	private Joueur p1;
+	private JoueurAgricole p1;
 	private Map<RessourceAgricole, Integer> mp = new HashMap<>();
 	
 	   @Test
