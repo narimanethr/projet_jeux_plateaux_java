@@ -9,10 +9,24 @@ import tuiles.*;
 
 public class DeployerGuerre implements Action{
 	protected Plateau plateau;
+	/** modeliser l action Deploiement agricole 
+	 * 
+	 * @param p plateau sue lequel on deploie 
+	 */
 	public DeployerGuerre(Plateau p) {
 		this.plateau=p;
 		
 	}
+	/**
+	 * execute l'action deploie
+	 * @param j joueur qui va deployer
+	 * @param y position de la tuile ou en deployer 
+	 * @param x position de la tuile ou en deployer 
+	 * @param o une Armee a deployer
+	 * @throws RangeOutOfCapacityTileException
+	 * @throws NoteFreeTileException
+	 * @throws StockEmptyException
+	 */
 	public void execute(Joueur j,int y ,int x, Armee a)throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException{
 	
 		if( a.getTaille()<=this.plateau.getTuile(y,x).getCapacite()) {
@@ -40,6 +54,13 @@ public class DeployerGuerre implements Action{
 		}
 		
 	}
+	/**
+	 * methode utilser dans execute qui mis en oeuvre les actions qui affect les tuiles adjacentes a la tuile ou on a deployer
+	 * @param j joueur qui deploie
+	 * @param y position de la tuile ou on deploie 
+	 * @param x position de la tuile ou on deploie 
+	 * @param a armme a deployer
+	 */
 	private void affectAdj(Joueur j,int y ,int x,Armee a){ 
 		Tuile[] t=new Tuile[4];
 		for(int i=0;i<4;i++) {
@@ -79,7 +100,12 @@ public class DeployerGuerre implements Action{
 
 	}
 	
-	
+	/**
+	 * methode qui renvoie la taille de la tuile donnee en parametre  a considéree en fonction de son type
+	 * @param t tuile
+	 * @param j jeueur qui deploie 
+	 * @return la taille de la tuile
+	 */
 	public int converTailleTuile(Tuile t,Joueur j){
 		int res=0;
 		if(!t.isFree() && t.getPeresonnage()!=null) {
