@@ -5,11 +5,18 @@ import plateaux.Plateau;
 import tuiles.Tuile;
 
 public class NeRienFaireAgricole extends NeRienFaire implements Action {
-
+	/**
+	 * modelise l action ne rien faire agricole 
+	 * @param p plateau ou se deroule l action 
+	 */
 	public NeRienFaireAgricole(Plateau p) {
 		super(p);
-		// TODO Auto-generated constructor stub
+	
 	}
+	/**
+	 * execute l action ne rien faire 
+	 * @param j joueur qui execute l action 
+	 */
 	public void execute(Joueur j) {
 		for(int x=0;x<this.plateau.getLargeur();x++){
 			for (int y=0;y<this.plateau.getHauteur();y++) {
@@ -20,6 +27,11 @@ public class NeRienFaireAgricole extends NeRienFaire implements Action {
 		}
 			
 		} 
+	/**
+	 * permet au joueur de recevoir l or en fonction de type de tuile ou il se situe le joueur 
+	 * @param j joueur qui va recevoir l or 
+	 * @param t tuile ou il se situe
+	 */
 	public void RecoisPieces(Joueur j, Tuile t) {
 		if (t.getName()=="foret" ||t.getName()=="plaine") {
 			j.addNbOr(1);

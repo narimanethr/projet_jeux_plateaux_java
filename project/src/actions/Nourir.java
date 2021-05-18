@@ -6,12 +6,17 @@ import tuiles.*;
 
 public class Nourir implements Action {
 	protected PlateauGuerre plateau;
-	/* create a new Nourir with p the gameBoard
-	 * 
+	/**
+	 * modeliser l action nourrir  
+	 * @param p plateau du jeux 
 	 */
 	public Nourir(PlateauGuerre p) {
 		this.plateau=p;
 	}
+	/**
+	 * execute l action Nourir pour nouir ses armees
+	 * @param j joueur qui execute l action 
+	 */
 	public void execute (JoueurGuerre j) {
 		for(int x=0;x<this.plateau.getLargeur();x++){
 			for (int y=0;y<this.plateau.getHauteur();y++) {
@@ -33,6 +38,11 @@ public class Nourir implements Action {
 		}
 		
 	}
+	/**
+	 * renvoie le cout d une armee en fonction de type de la tuile ou elle se situe
+	 * @param t tuile
+	 * @return cout
+	 */
 	public int coutArmee(Tuile t) {
 		int res=0;
 		if(t.getPeresonnage()!=null) {

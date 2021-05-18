@@ -17,9 +17,17 @@ import tuiles.Plaine;
 
 public class EchangeRessources implements Action{
 	protected PlateauAgricole plateau;
+	/**
+	 * modeliser l action Echange Ressources
+	 * @param p plateau ou execute les actions 
+	 */
 	public EchangeRessources(PlateauAgricole p) {
 		this.plateau=p;
 	}
+	/**
+	 * methode qui actionne l echange Ressources contre l or
+	 * @param j joueur a qui on apllique l action 
+	 */
 	public void execute(JoueurAgricole j) {
 		Set<String> keys =j.getRessources().keySet();
 		Iterator<String> it =keys.iterator();
@@ -32,7 +40,11 @@ public class EchangeRessources implements Action{
 		}
 	}
 	
-
+	/**
+	 * renvoie nb pieces de d or d une ressource 
+	 * @param res name de ressources 
+	 * @return nb pieces de d or
+	 */
 	int convertVersOr(String res) {
 		switch(res) {
 		case "ble": return new Ble().getUnit();
