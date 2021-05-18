@@ -15,7 +15,7 @@ public class DeployerAgricole extends DeployerGuerre implements Action{
 	 * @param p plateau sue lequel on deploie 
 	 */
 	public DeployerAgricole(Plateau p) {
-		super(p);
+		super(p); 
 	}
 	/**
 	 * execute l'action deploie
