@@ -1,6 +1,9 @@
 
 import static org.junit.Assert.*;
+
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 import org.junit.Test;
 
@@ -24,22 +27,44 @@ public class TestRecolterAgricole {
 	@Test
 	public void TestExecute() throws NoteFreeTileException {
 		Ouvrier o = new Ouvrier(1);
-		PlateauAgricole p = new PlateauAgricole(5,10);
+		PlateauAgricole p = new PlateauAgricole(1,1);
 		 JoueurAgricole j1 = new  JoueurAgricole("j1");
 		 RecolterAgricole r = new RecolterAgricole(p);
 		 DeployerAgricole d= new DeployerAgricole(p);
-		 for(int y=0;y<p.getHauteur();y++){
-				for (int x=0;y<p.getLargeur();x++) {
-					if(p.getTuile(y, x).getProprietaire()==j1) {
-						int  Resinit = j1.getRessources().size();
-						d.execute(j1, y, x, o);
-						r.execute(j1);
-						int ResAfter = j1.getRessources().size();
-						assertTrue( ResAfter> Resinit );
-					
+		 d.execute(j1, 0, 0, o);
+		 assertTrue(p.getTuile(0, 0).hasRessources());
+		 int nbResInit =j1.getRessources().get(p.getTuile(0, 0).getRes().getName());
+		 r.execute(j1);
+		 int nbResAfter =j1.getRessources().get(p.getTuile(0, 0).getRes().getName());
+		 assertTrue(nbResAfter==nbResInit+1);
+				
+	}
+	@Test
+	public void TestExecute2() throws NoteFreeTileException {
+		Ouvrier o = new Ouvrier(1);
+		PlateauAgricole p2 = new PlateauAgricole(10,10);
+		 JoueurAgricole j2 = new  JoueurAgricole("j1");
+		 RecolterAgricole r = new RecolterAgricole(p2);
+		 DeployerAgricole d= new DeployerAgricole(p2);
+		 int NbtotalRes=0;
+			 assertTrue(NbtotalRes==0);
+			for(int x=0;x<p2.getLargeur();x++){
+				for (int y=0;y<p2.getHauteur();y++) {
+					if(p2.getTuile(y, x).hasRessources()) {
+						 d.execute(j2, y, x, o);
 					}
 				}
-			}			
-	}
+				r.execute(j2);
+				Set<String> keys =j2.getRessources().keySet();
+				Iterator<String> it =keys.iterator();
+				while (it.hasNext()) {
+					String res=it.next();
+					int v2=j2.getRessources().get(res);
+					NbtotalRes+=v2;
+				}
 
+
+			}
+			 assertTrue(NbtotalRes>0);
+	}
 }

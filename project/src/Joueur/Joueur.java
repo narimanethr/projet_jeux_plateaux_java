@@ -16,7 +16,7 @@ public abstract class Joueur {
 		this.name=name;
 		this.nbPersonnage=0;
 		this.nbOr=15; 
-		this.unites=10; // pour guerre 
+		this.unites=10; // pour guerre unites de nourriture
 		this.ressources= new HashMap<>();
 		String ble =new Ble().getName();
 		String bois =new Bois().getName();
@@ -121,6 +121,11 @@ public abstract class Joueur {
 	public boolean StockEmpty() {
 		return this.nbPersonnage==0;
 	}
-
+	@Override
+	public String toString() {
+		return "Joueur [nbOr=" + nbOr + ", unites=" + unites + ", name=" + name + ", nbPersonnage=" + nbPersonnage
+				+ ", ressources=" + ressources + "]";
+	}
+	
 
 }

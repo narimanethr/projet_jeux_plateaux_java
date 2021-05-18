@@ -71,6 +71,12 @@ public abstract class Plateau{
 	public String toString() {
 		return "ce plateau est de taille "+this.getNbTuiles();
 	}
+	/**
+	 * return a random Tile 
+	 * @param y position of Tile
+	 * @param x position of Tile
+	 * @return a random Tile 
+	 */
 	public Tuile getTuileAleatoire(int y,int x){
 		Random r = new Random();
 		int t=r.nextInt(4);
@@ -86,7 +92,7 @@ public abstract class Plateau{
 	}
 
 	/**
-	 * check if the current tile has not a ajacent tile of ocean type
+	 * check if the current tile has a ajacent tile not ocean type
 	 * @param i a position
 	 * @param j a position
 	 * @return true if it has a ajencent tile of ocean type , or false instead
@@ -126,6 +132,9 @@ public abstract class Plateau{
 		}
 		return res;
 	}
+	/**
+	 * methode qui nous permet de visualier le plateau sous forme d un tableau 2 dimentions 
+	 */
 	public void affiche() {
 		String t[]=new String[this.getHauteur()];
 		for (int i=0;i<this.hauteur;i++) {
@@ -156,23 +165,6 @@ public abstract class Plateau{
 		}
 		return res;
 	}
-	public boolean AllcontainsKey() {
-		boolean res=true;
-		JoueurAgricole joueur=new JoueurAgricole("test");
-		Map<String, Integer> map = joueur.getRessources();
-		for (int i=0;i<this.hauteur;i++) {
-			for (int j=0; j<this.largeur;j++) {
-				if(this.getTuile(i, j).hasRessources()&& map.containsKey(this.getTuile(i, j).getRes())==false) {
-					res=false;
-				}
-			}
-		}
-		return res;
-	}
-	public boolean TcontainsKey(Tuile t) {
-		JoueurAgricole joueur=new JoueurAgricole("test");
-		Map<String, Integer> map = joueur.getRessources();
-		return map.containsKey(t.getRes().getName());
-	}
+
 
 }

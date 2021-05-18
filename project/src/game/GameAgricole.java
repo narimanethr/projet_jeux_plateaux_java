@@ -15,10 +15,22 @@ import plateaux.PlateauGuerre;
 
 
 public class GameAgricole extends Game{
+	/**
+	 * creat new gameAgricole with Plteau p, Joeur j1 and j2
+	 * @param p
+	 * @param j1
+	 * @param j2
+	 */
 
 	public GameAgricole(Plateau p,Joueur j1, Joueur j2) {
 		super(p,j1,j2);
-	}
+	}/**
+	 * Play one round
+	 * @param j Joueur , the player that playes the round
+	 * @throws RangeOutOfCapacityTileException
+	 * @throws NoteFreeTileException
+	 * @throws StockEmptyException
+	 */
 	public void playOneRound(Joueur j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 
 		try{
@@ -26,9 +38,9 @@ public class GameAgricole extends Game{
 			RecolterAgricole R=new RecolterAgricole(this.plateau);
 			Remunere N=new Remunere((PlateauAgricole) this.plateau);
 			R.execute((JoueurAgricole) j);
-			System.out.println(j.getName()+" a recolter ");
+			System.out.println(j.getName()+" a recolter les ressources ");
 			N.execute((JoueurAgricole) j);
-			System.out.println(j.getName()+" a remun ");
+			System.out.println(j.getName()+" a remunere ses ouvriers ");
 		}
 		catch(Exception e) {
 			System.out.println(e);
@@ -51,12 +63,12 @@ public class GameAgricole extends Game{
 				x=r.nextInt(this.plateau.getLargeur());
 			}
 			d.execute(j, y, x, new Ouvrier(1));
-			System.out.println(j.getName()+" a deployer ");
+			System.out.println(j.getName()+" a deploye un ouvrier ");
 		}
 		else if(a==1) {
 			EchangeRessources E = new EchangeRessources((PlateauAgricole) this.plateau);
 			E.execute((JoueurAgricole) j);
-			System.out.println(j.getName()+" a echange ses ressources ");
+			System.out.println(j.getName()+" a echange ses ressources contre de l'or ");
 		}
 		else{
 			NeRienFaireAgricole n=new NeRienFaireAgricole(this.plateau);
@@ -65,6 +77,12 @@ public class GameAgricole extends Game{
 		}
 
 	}
+	/**
+	 * play the game 
+	 * @throws RangeOutOfCapacityTileException
+	 * @throws NoteFreeTileException
+	 * @throws StockEmptyException
+	 */
 	public void play() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException{
 		int nbTours =0;
 		while( !this.plateau.AllTileNotFree() & nbTours <6) {
@@ -73,8 +91,8 @@ public class GameAgricole extends Game{
 			nbTours+=1;
 			System.out.println("nb tours: "+nbTours);
 		}
-		System.out.println(this.joueur1.getName()+" a: "+this.comulPointsPers((JoueurAgricole) this.joueur1)+" pieces d or");
-		System.out.println(this.joueur2.getName()+" a: "+this.comulPointsPers((JoueurAgricole) this.joueur2)+" pieces d or");
+		System.out.println(this.joueur1.getName()+" a: "+this.cumulPointsPers((JoueurAgricole) this.joueur1)+" pieces d or");
+		System.out.println(this.joueur2.getName()+" a: "+this.cumulPointsPers((JoueurAgricole) this.joueur2)+" pieces d or");
 		System.out.println("le gagnant est: "+this.Gagnant((JoueurAgricole)this.joueur1,(JoueurAgricole)this.joueur2).getName());
 	}
 	
@@ -87,8 +105,8 @@ public class GameAgricole extends Game{
 	
 	public Joueur Gagnant(Joueur j1,Joueur j2) {
 		Joueur g;
-		int c1=this.comulPointsPers(j1);
-		int c2=this.comulPointsPers(j2);
+		int c1=this.cumulPointsPers(j1);
+		int c2=this.cumulPointsPers(j2);
 		if(c1>c2) {
 			g=j1;
 		}

@@ -44,16 +44,22 @@ public abstract class Game {
 			RecolterGuerre R=new RecolterGuerre(this.plateau);
 			Nourir N=new Nourir((PlateauGuerre) this.plateau);
 			R.execute((JoueurGuerre) j);
-			System.out.println(j.getName()+" a recolter ");
+			System.out.println(j.getName()+" a recolte les ressources ");
 			N.execute((JoueurGuerre) j);
-			System.out.println(j.getName()+" a nouri ");
+			System.out.println(j.getName()+" a nourri ses armees");
 		}
 		catch (Exception e){
 			System.out.println(e);
 		}
 		
 	}
-
+	/**
+	 * execute une action aleatoire entre Deployer et Ne rien faire
+	 * @param j joueur qui execute l action 
+	 * @throws RangeOutOfCapacityTileException
+	 * @throws NoteFreeTileException
+	 * @throws StockEmptyException
+	 */
 	public void executeActionAlea(Joueur j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 		Random r=new Random();
 		int a=r.nextInt(2);
@@ -71,7 +77,7 @@ public abstract class Game {
 				armSize=r.nextInt(5)+1;
 			}
 			d.execute(j, y, x,new Armee(armSize));
-			System.out.println(j.getName()+" a deployer ");
+			System.out.println(j.getName()+" a deploye une armee ");
 		}
 		else {
 			NeRienFaire n=new NeRienFaire(this.plateau);
@@ -80,20 +86,31 @@ public abstract class Game {
 		}
 
 	}
+	/**
+	 * play the game 
+	 * @throws RangeOutOfCapacityTileException
+	 * @throws NoteFreeTileException
+	 * @throws StockEmptyException
+	 */
 	public void play() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 		int nbTours =0;
 		while( !(this.plateau).AllTileNotFree() & nbTours <10 && !this.joueur1.StockEmpty()&& !this.joueur2.StockEmpty()) {
 			this.playOneRound(this.joueur1);
 			this.playOneRound(this.joueur2);
 			nbTours+=1;
-			System.out.println("nb tours: "+nbTours);
+			System.out.println("nb tours joués : "+nbTours);
 
 		}
 		System.out.println(this.joueur1.getName()+" a: "+this.pointsTotal(this.joueur1)+" pieces d or");
 		System.out.println(this.joueur2.getName()+" a: "+this.pointsTotal(this.joueur2)+" pieces d or");
 		System.out.println("le gagnant est: "+this.Gagnant(this.joueur1,this.joueur2).getName());
 	}
-	public int comulPointsPers(Joueur j) {
+	/**
+	 * calcule nbre d or des personnages du joueur 
+	 * @param j joueur
+	 * @return
+	 */
+	public int cumulPointsPers(Joueur j) {
 		int res=0;
 		for(int x=0;x<this.plateau.getLargeur();x++){
 			for (int y=0;y<this.plateau.getHauteur();y++) {
@@ -104,16 +121,26 @@ public abstract class Game {
 		}
 		return res;
 	}
+	/**
+	 * calcule le cumul des points du joueur passe en parametre apres le jeux
+	 * @param j joueur 
+	 * @return
+	 */
 	public int pointsTotal(Joueur j) {
-		int res=this.comulPointsPers(j)+this.cumulBonus(j)+j.getNbOr();
+		int res=this.cumulPointsPers(j)+this.cumulBonus(j)+j.getNbOr();
 		return res;
 		
 	}
-	
+	/**
+	 * renvoie le joueur gagne au jeux
+	 * @param j1
+	 * @param j2
+	 * @return
+	 */
 	public Joueur Gagnant(Joueur j1,Joueur j2) {
 		Joueur g;
-		int c1=this.comulPointsPers(j1)+this.cumulBonus(j1)+j1.getNbOr();
-		int c2=this.comulPointsPers(j2)+this.cumulBonus(j2)+j2.getNbOr();
+		int c1=this.cumulPointsPers(j1)+this.cumulBonus(j1)+j1.getNbOr();
+		int c2=this.cumulPointsPers(j2)+this.cumulBonus(j2)+j2.getNbOr();
 		if(c1>c2) {
 			g=j1;
 		}
@@ -122,6 +149,11 @@ public abstract class Game {
 		}
 		return g;
 	}
+	/**
+	 * cumule le nombre total de bonnus du joeur passe en parametre en fonction de la tuile ou il se situe 
+	 * @param j
+	 * @return
+	 */
 	public int cumulBonus(Joueur j) {
 		int res =0;
 		int nbTerritoires =0; 
