@@ -9,10 +9,6 @@ import tuiles.*;
 
 public class DeployerGuerre implements Action{
 	protected Plateau plateau;
-	/*create a new  EchangeRessources action with parameter Plateau p 
-	 * @param p PlateauAgricole, the gameBoard
-	 * 
-	 */
 	public DeployerGuerre(Plateau p) {
 		this.plateau=p;
 		
@@ -82,12 +78,6 @@ public class DeployerGuerre implements Action{
 		}
 
 	}
-	/* convert's the size of the tile t,of the player j 
-	 * @param j Joueur , the player and owner of the tile 
-	 * @param t Tuile , the tile that size will change 
-	 * @return res int  , the converted size 
-	 * 
-	 */
 	
 	
 	public int converTailleTuile(Tuile t,Joueur j){

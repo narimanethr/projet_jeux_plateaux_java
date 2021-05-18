@@ -6,6 +6,7 @@ import ressources.agricole.RessourceAgricole;
 
 public abstract class Tuile {
 	protected Joueur proprietaire;
+	
 	protected int bonus;
 	protected String name;
 	protected int capacite;
@@ -13,13 +14,6 @@ public abstract class Tuile {
 	protected Personnage peresonnage;
 	protected int [] position=new int[2];
 	protected Ressources res;
-	/* Creates a new  Tile with Ressources res,a  capacity cap ,horizontal and vertical coordinates x and y 
-	 * @param res Ressources  , the ressources of the tile 
-	 * @param cap the capacity of the tile 
-	 * @param y the vertical coordinate of the tile 
-	 * @param x the horizontal  coordinate of the tile 
-	 * 
-	 */
 	public Tuile(Ressources res,int cap,int y,int x) {
 		this.name = "";
 		this.res = res;
@@ -29,45 +23,24 @@ public abstract class Tuile {
 		this.proprietaire=null;
 		this.peresonnage=null;
 	}
-	/*return's the Ressources of the tile 
-	 * @return res ,the  Ressources of the tile
-	 * 
-	 */
 	
 	public Ressources getRes() {
 		return res;
 	}
-<<<<<<< HEAD
-	/*return's the name of the tile 
-	 * @return name ,the  name of the tile
-	 * 
-	 */
-=======
-	
->>>>>>> 34ae569bb11a9351643ba9dd8bb9fe613df7cc0f
+
+
+
 
 	public String getName() {
 		return name;
 	}
-	/*Set's the Ressources of the tile 
-	 * @param  name  ,the name  of the tile that we want to replace 
-	 * 
-	 */
 
 	public void setName(String name) {
 		this.name = name;
 	}
-	/*return's the owner  of the tile 
-	 * @return proprietaire ,the  owner  of the tile
-	 * 
-	 */
 	public Joueur getProprietaire() {
 		return this.proprietaire;
 	}
-	/*Set's the owner  of the tile 
-	 * @param j ,Joueur  ,the  owner  of the tile that we want to replace 
-	 * 
-	 */
 	public void setProprietaire(Joueur j) {
 		this.proprietaire=j;
 	}
@@ -80,7 +53,7 @@ public abstract class Tuile {
 		return capacite;
 	}
 	/* return's the cost
-	 * @return cout , cost of the tile 
+	 * @return cout 
 	 * 
 	 */
 
@@ -111,13 +84,7 @@ public abstract class Tuile {
 	public void setPersonnage(Personnage p) {
 		this.peresonnage=p;
 	}
-<<<<<<< HEAD
-	/*Check's if the tile has an owner , false if there  is not an owner or true instead 
-	 * @return True if there is an owner or false instead 
-	 * 
-	 */
-    public boolean hasProprietaire() {
-=======
+
     public int getBonus() {
 		return this.bonus;
 	}
@@ -128,13 +95,9 @@ public abstract class Tuile {
 	}
 
 	public boolean hasProprietaire() {
->>>>>>> 34ae569bb11a9351643ba9dd8bb9fe613df7cc0f
+
     	return this.proprietaire!=null;
     }
-    /*Check's if the tile has  ressources  , false if there  is no ressources  or true instead 
-	 * @return True if there is an owner or false instead 
-	 * 
-	 */
     public boolean hasRessources() {
     	return this.res !=null;
     	}

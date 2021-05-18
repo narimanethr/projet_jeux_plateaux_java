@@ -12,40 +12,10 @@ import actions.*;
 import plateaux.Plateau;
 import plateaux.PlateauAgricole;
 import plateaux.PlateauGuerre;
-<<<<<<< HEAD
-/*GameAgricole class  */
-public class GameAgricole {
-	protected JoueurAgricole joueur1; // player 1
-	protected JoueurAgricole joueur2;// player 2
-	protected PlateauAgricole plateau;
-	/* set's GameAgricole
-	 * @param p PlateauAgricole
-	 * @param j1 JoueurAgricole
-	 * @param j2 JoueurAgricole
-	 * 
-	 */
-	public GameAgricole(PlateauAgricole p,JoueurAgricole j1, JoueurAgricole j2) {
-		this.joueur1 = j1;
-		this.joueur2 = j2;
-		this.plateau=p;
-	}
-	/* play's one round 
-	 * @param j JoueurAgricole
-	 * 
-	 * 
-	 */
-	public void playOneRound(JoueurAgricole j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
-		this.executeActionAlea(j);
-		RecolterAgricole R=new RecolterAgricole(this.plateau);
-		Remunere N=new Remunere(this.plateau);
-		R.execute(j);
-		System.out.println(j.getName()+" a recolter ");
-		N.execute(j);
-		System.out.println(j.getName()+" a remun ");
-=======
+
 
 public class GameAgricole extends Game{
-	
+
 	public GameAgricole(Plateau p,Joueur j1, Joueur j2) {
 		super(p,j1,j2);
 	}
@@ -63,13 +33,7 @@ public class GameAgricole extends Game{
 		catch(Exception e) {
 			System.out.println(e);
 		}
-
->>>>>>> 34ae569bb11a9351643ba9dd8bb9fe613df7cc0f
 	}
-	/*Execut's a random action 
-	 * @param j JoueurAgricole
-	 * 
-	 */
 
 	public void executeActionAlea(Joueur j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 		Random r=new Random();

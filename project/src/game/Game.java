@@ -12,39 +12,21 @@ import plateaux.Plateau;
 import plateaux.PlateauAgricole;
 import plateaux.PlateauGuerre;
 
-<<<<<<< HEAD
-public class Game {
-	protected JoueurGuerre joueur1; 
-	protected JoueurGuerre joueur2;
-	protected PlateauGuerre plateau;
-	/*Create's a new Game with PlateauGuerre p , GameBoard a first player JoueurGuerre j1, and second JoueurGuerre j2
-	 * @param p PlateauGuerre, the gameBoard
-	 * @param j1 JoueurGuerre, the first player 
-	 * @param j2 JoueurGuerre, the second player 
-	 * 
-	 */
-	public Game(PlateauGuerre p,JoueurGuerre j1, JoueurGuerre j2) {
-=======
+
 public abstract class Game {
 	protected Joueur joueur1; 
 	protected Joueur joueur2;
 	protected Plateau plateau;
 	public Game(Plateau p,Joueur j1, Joueur j2) {
->>>>>>> 34ae569bb11a9351643ba9dd8bb9fe613df7cc0f
+
 		this.joueur1 = j1;
 		this.joueur2 = j2;
 		this.plateau=p;
 	}
-<<<<<<< HEAD
-	/*Play's one round 
-	 * @param j JoueurGuerre , the player that playes the round 
-	 * 
-	 */
 
-	public void playOneRound(JoueurGuerre j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
-=======
+
 	public void playOneRound(Joueur j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
->>>>>>> 34ae569bb11a9351643ba9dd8bb9fe613df7cc0f
+
 		try {
 			this.executeActionAlea((JoueurGuerre) j);
 			RecolterGuerre R=new RecolterGuerre(this.plateau);

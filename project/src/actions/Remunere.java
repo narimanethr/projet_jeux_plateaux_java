@@ -5,9 +5,6 @@ import plateaux.PlateauAgricole;
 
 public class Remunere implements Action {
 	private PlateauAgricole plateau;
-	/* create a new  Remunere action  with p the gameBoard
-	 * 
-	 */
 	public Remunere(PlateauAgricole p) {
 		this.plateau=p;
 	}
