@@ -34,6 +34,10 @@ public class GameAgricole extends Game{
 			System.out.println(e);
 		}
 	}
+/**
+ * Execut a random action 
+ * @param j JoueurAgricole
+ */
 
 	public void executeActionAlea(Joueur j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 		Random r=new Random();
@@ -73,6 +77,13 @@ public class GameAgricole extends Game{
 		System.out.println(this.joueur2.getName()+" a: "+this.comulPointsPers((JoueurAgricole) this.joueur2)+" pieces d or");
 		System.out.println("le gagnant est: "+this.Gagnant((JoueurAgricole)this.joueur1,(JoueurAgricole)this.joueur2).getName());
 	}
+	
+/**
+ * return the winner of the game 
+ * @param j1 , player 1
+ * @param j2 , player 2
+ * @return g, the winner
+ */
 	
 	public Joueur Gagnant(Joueur j1,Joueur j2) {
 		Joueur g;
