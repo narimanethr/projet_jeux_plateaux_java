@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"actions"},{"l":"All Packages","url":"allpackages-index.html"},{"l":"exception"},{"l":"game"},{"l":"Joueur"},{"l":"personnages"},{"l":"plateaux"},{"l":"ressources"},{"l":"tuiles"}]
