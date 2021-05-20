@@ -17,19 +17,20 @@ import plateaux.PlateauGuerre;
 public class GameAgricole extends Game{
 	/**
 	 * creat new gameAgricole with Plteau p, Joeur j1 and j2
-	 * @param p
-	 * @param j1
-	 * @param j2
+	 * @param p plateau sur lequel se deroule le jeu
+	 * @param j1 joueur 1
+	 * @param j2 joueur 2
 	 */
 
 	public GameAgricole(Plateau p,Joueur j1, Joueur j2) {
 		super(p,j1,j2);
-	}/**
+	}
+	/**
 	 * Play one round
 	 * @param j Joueur , the player that playes the round
-	 * @throws RangeOutOfCapacityTileException
-	 * @throws NoteFreeTileException
-	 * @throws StockEmptyException
+	 * @throws RangeOutOfCapacityTileException si la taille de larmme deployer superieur capacite de la tuile 
+ 	 * @throws NoteFreeTileException la tuile est occupe ou du type ocean 
+     * @throws StockEmptyException stock des personnages et epuise
 	 */
 	public void playOneRound(Joueur j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 
@@ -79,9 +80,9 @@ public class GameAgricole extends Game{
 	}
 	/**
 	 * play the game 
-	 * @throws RangeOutOfCapacityTileException
-	 * @throws NoteFreeTileException
-	 * @throws StockEmptyException
+	 * @throws RangeOutOfCapacityTileException si la taille de larmme deployer superieur capacite de la tuile 
+ 	 * @throws NoteFreeTileException la tuile est occupe ou du type ocean 
+     * @throws StockEmptyException stock des personnages et epuise
 	 */
 	public void play() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException{
 		int nbTours =0;

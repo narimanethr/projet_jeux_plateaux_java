@@ -32,9 +32,9 @@ public abstract class Game {
 /**
  * Play one round
  * @param j Joueur , the player that playes the round
- * @throws RangeOutOfCapacityTileException
- * @throws NoteFreeTileException
- * @throws StockEmptyException
+ * @throws RangeOutOfCapacityTileException si la taille de larmme deployer superieur capacite de la tuile 
+ * @throws NoteFreeTileException la tuile est occupe ou du type ocean 
+ * @throws StockEmptyException stock des personnages et epuise
  */
 
 	public void playOneRound(Joueur j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
@@ -56,9 +56,9 @@ public abstract class Game {
 	/**
 	 * execute une action aleatoire entre Deployer et Ne rien faire
 	 * @param j joueur qui execute l action 
-	 * @throws RangeOutOfCapacityTileException
-	 * @throws NoteFreeTileException
-	 * @throws StockEmptyException
+	 * @throws RangeOutOfCapacityTileException si la taille de larmme deployer superieur capacite de la tuile 
+ 	 * @throws NoteFreeTileException la tuile est occupe ou du type ocean 
+     * @throws StockEmptyException stock des personnages et epuise
 	 */
 	public void executeActionAlea(Joueur j) throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 		Random r=new Random();
@@ -88,9 +88,9 @@ public abstract class Game {
 	}
 	/**
 	 * play the game 
-	 * @throws RangeOutOfCapacityTileException
-	 * @throws NoteFreeTileException
-	 * @throws StockEmptyException
+	 * @throws RangeOutOfCapacityTileException si la taille de larmme deployer superieur capacite de la tuile 
+     * @throws NoteFreeTileException la tuile est occupe ou du type ocean 
+     * @throws StockEmptyException stock des personnages et epuise
 	 */
 	public void play() throws RangeOutOfCapacityTileException, NoteFreeTileException, StockEmptyException {
 		int nbTours =0;
@@ -98,7 +98,7 @@ public abstract class Game {
 			this.playOneRound(this.joueur1);
 			this.playOneRound(this.joueur2);
 			nbTours+=1;
-			System.out.println("nb tours joués : "+nbTours);
+			System.out.println("nb tours joues : "+nbTours);
 
 		}
 		System.out.println(this.joueur1.getName()+" a: "+this.pointsTotal(this.joueur1)+" pieces d or");
@@ -108,7 +108,7 @@ public abstract class Game {
 	/**
 	 * calcule nbre d or des personnages du joueur 
 	 * @param j joueur
-	 * @return
+	 * @return nbre d or des personnages du joueur 
 	 */
 	public int cumulPointsPers(Joueur j) {
 		int res=0;
@@ -124,7 +124,7 @@ public abstract class Game {
 	/**
 	 * calcule le cumul des points du joueur passe en parametre apres le jeux
 	 * @param j joueur 
-	 * @return
+	 * @return cumul des points 
 	 */
 	public int pointsTotal(Joueur j) {
 		int res=this.cumulPointsPers(j)+this.cumulBonus(j)+j.getNbOr();
@@ -133,9 +133,9 @@ public abstract class Game {
 	}
 	/**
 	 * renvoie le joueur gagne au jeux
-	 * @param j1
-	 * @param j2
-	 * @return
+	 * @param j1 joueur 1
+	 * @param j2 joueur 2
+	 * @return le joueur gagnant 
 	 */
 	public Joueur Gagnant(Joueur j1,Joueur j2) {
 		Joueur g;
@@ -151,8 +151,8 @@ public abstract class Game {
 	}
 	/**
 	 * cumule le nombre total de bonnus du joeur passe en parametre en fonction de la tuile ou il se situe 
-	 * @param j
-	 * @return
+	 * @param j joueur a qui on calcule le cumul bonus
+	 * @return cumul bonus 
 	 */
 	public int cumulBonus(Joueur j) {
 		int res =0;

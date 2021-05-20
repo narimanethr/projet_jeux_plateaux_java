@@ -7,7 +7,7 @@ all: cls doc
 
 
 doc: 
-	cd src && javadoc $(PACKAGE) -d ../docs
+	cd src && javadoc $(PACKAGE) -d ../doc
 
 cls:
 
