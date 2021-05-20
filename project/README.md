@@ -65,14 +65,21 @@ correction du code on a commencé à modéliser le plateau
 continuation sur le code de plteau 
 ## Semaine 6
 finition de code plateau et debut de modelisation des actions 
+creations des testes unitaires
 ## Semaine 7
 suite des modelisation des action 
+avancement testes unitaires
 ## Semaine 8
 commencement du code des actions 
+avancement testes unitaires
 ## Semaine 9
 suite du code des actions
+avancement testes unitaires
 ## Semaine 10
 suite des action et on a commencé à réfléchir la modélisation de class game
 ## Semaine 11
-
+modelisation des classes games (game gameGuerre et gameAgricole),  GameGuerreMain et GameAgricoleMain
+avancement testes unitaires
 ## Semaine 12
+finalisation de  GameGuerreMain et GameAgricoleMain est creation de makefile 
+finalisation des testes unitaires
