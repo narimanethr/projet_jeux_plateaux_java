@@ -22,7 +22,7 @@ public class DeployerGuerre implements Action{
 	 * @param j joueur qui va deployer
 	 * @param y position de la tuile ou en deployer 
 	 * @param x position de la tuile ou en deployer 
-	 * @param o une Armee a deployer
+	 * @param a une Armee a deployer
 	 * @throws RangeOutOfCapacityTileException
 	 * @throws NoteFreeTileException
 	 * @throws StockEmptyException
