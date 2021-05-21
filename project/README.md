@@ -60,41 +60,41 @@ on a codé les classes game (game et gemeAgricole) et des gameMain pour tester.
 Modélisation des personnages, joueurs,tuiles et ressources et  on a commencé le code des personnages.
 
 ## Semaine 3
-on a continué le code des personnages et les codes des tuiles ,ressources et joueurs.
+* on a continué le code des personnages et les codes des tuiles ,ressources et joueurs.
 
 ## Semaine 4
-correction du code on a commencé à modéliser le plateau.
+* correction du code on a commencé à modéliser le plateau.
 
 ## Semaine 5
-continuation sur le code de plteau.
+* continuation sur le code de plteau.
 
 ## Semaine 6
-finition de code plateau et debut de modelisation des actions.
-creations des testes unitaires.
+* finition de code plateau et debut de modelisation des actions.
+* creations des testes unitaires.
 
 ## Semaine 7
-suite des modelisation des action.
-avancement testes unitaires.
+* suite des modelisation des action.
+* avancement testes unitaires.
 
 ## Semaine 8
-commencement du code des actions. 
-avancement testes unitaires.
+* commencement du code des actions. 
+* avancement testes unitaires.
 
 ## Semaine 9
-suite du code des actions.
-avancement testes unitaires.
+* suite du code des actions.
+* avancement testes unitaires.
 
 ## Semaine 10
-suite des action et on a commencé à réfléchir la modélisation de class game.
+* suite des action et on a commencé à réfléchir la modélisation de class game.
 
 ## Semaine 11
-modelisation des classes games (game gameGuerre et gameAgricole),  GameGuerreMain et GameAgricoleMain.
-avancement testes unitaires.
+* modelisation des classes games (game gameGuerre et gameAgricole),  GameGuerreMain et GameAgricoleMain.
+* avancement testes unitaires.
 
 ## Semaine 12
-* finalisation de  GameGuerreMain et GameAgricoleMain est creation de makefile.*
+* finalisation de  GameGuerreMain et GameAgricoleMain est creation de makefile.
 * finalisation des testes unitaires.
 
 ## Semaine du 16/05 au 22/05
-nous avions tester le bon fonctionnement des mains , jars et les tests unitaires.
-rendu final du projet.
+* nous avions tester le bon fonctionnement des mains , jars et les tests unitaires.
+* rendu final du projet.
