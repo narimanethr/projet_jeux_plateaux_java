@@ -12,11 +12,11 @@ doc:
 cls:
 	cd src && javac -d ../classes $(PACKAGE)
 guerre:
-	cd classes && jar cvfm ../jar/guerre.jar ../manifest-guerre 
+	cd classes && jar cvfm ../jar/guerre.jar ../manifest-guerre *
 agricole:
-	cd classes && jar cvfm ../jar/agricole.jar ../manifest-agricole
+	cd classes && jar cvfm ../jar/agricole.jar ../manifest-agricole *
 plateaux:
-	cd classes && jar cvfm ../jar/plateaux.jar ../manifest-plateaux 
+	cd classes && jar cvfm ../jar/plateaux.jar ../manifest-plateaux *
 
 clean:
 	rm -r classes docs
