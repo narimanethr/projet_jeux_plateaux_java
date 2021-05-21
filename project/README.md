@@ -83,3 +83,6 @@ avancement testes unitaires
 ## Semaine 12
 finalisation de  GameGuerreMain et GameAgricoleMain est creation de makefile 
 finalisation des testes unitaires
+## Semaine du 16/05 au 22/05
+nous avions tester le bon fonctionnement des mains , jars et les tests unitaires
+rendu final du projet
